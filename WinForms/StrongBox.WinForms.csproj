@@ -1,0 +1,137 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D2C54C01-4723-4178-8231-086E24F2A86C}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StrongBox.WinForms</RootNamespace>
+    <AssemblyName>StrongBox</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Lançamento\StrongBox\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>StrongBox.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Componentes\UcCbxCategoria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Componentes\UcCbxCategoria.Designer.cs">
+      <DependentUpon>UcCbxCategoria.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Componentes\UcCbxLocal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Componentes\UcCbxLocal.Designer.cs">
+      <DependentUpon>UcCbxLocal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\FormBancoDeDados.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Janelas\FormBancoDeDados.Designer.cs">
+      <DependentUpon>FormBancoDeDados.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Janelas\FormStrongBox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Janelas\FormStrongBox.Designer.cs">
+      <DependentUpon>FormStrongBox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Componentes\UcCbxCategoria.resx">
+      <DependentUpon>UcCbxCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Componentes\UcCbxLocal.resx">
+      <DependentUpon>UcCbxLocal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Janelas\FormBancoDeDados.resx">
+      <DependentUpon>FormBancoDeDados.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Janelas\FormStrongBox.resx">
+      <DependentUpon>FormStrongBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CamadaControle\StrongBox.CamadaControle.csproj">
+      <Project>{AF881859-9BDA-413D-8727-334B0DEB1742}</Project>
+      <Name>StrongBox.CamadaControle</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CamadaModelo\StrongBox.CamadaModelo.csproj">
+      <Project>{F5FF74C4-CF87-4BBF-A111-D05F31CD4D34}</Project>
+      <Name>StrongBox.CamadaModelo</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Recursos\Buscar.png" />
+    <Content Include="Recursos\Cancelar.png" />
+    <Content Include="Recursos\Cancelar2_20x20.png" />
+    <Content Include="Recursos\Confirm.png" />
+    <Content Include="Recursos\Confirm20x20.png" />
+    <Content Include="Recursos\Data Base.png" />
+    <Content Include="Recursos\Salvar.png" />
+    <Content Include="Recursos\Senha1.png" />
+    <Content Include="StrongBox.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
