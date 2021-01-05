@@ -216,9 +216,7 @@ namespace StrongBox.WinForms.Janelas {
                 _codigoLogin = Convert.ToInt64(DgvLogins.CurrentRow.Cells[0].Value.ToString());
                 TxtUsuario.Text = DgvLogins.CurrentRow.Cells[1].Value.ToString().Trim();
                 TxtDados.Text = DgvLogins.CurrentRow.Cells[2].Value.ToString().Trim();
-                TxtSenha.Text = DgvLogins.CurrentRow.Cells[3].Value.ToString().Trim();
                 NudTamanhoSenha.Value = Convert.ToByte(DgvLogins.CurrentRow.Cells[4].Value.ToString());
-                MarcarTipoSenha(Convert.ToInt32(DgvLogins.CurrentRow.Cells[5].Value.ToString()));
                 UcLocal.DefinirLocal(DgvLogins.CurrentRow.Cells[6].Value.ToString().Trim());
 
                 _modo = 2;
@@ -269,16 +267,38 @@ namespace StrongBox.WinForms.Janelas {
         }
         private void BtnSalvarLogins_Click(object sender, EventArgs e) {
             try {
-                _usuario = TxtUsuario.Text;
-                _observacao = TxtDados.Text;
-                _senha = TxtSenha.Text;
-                _tamanho = Convert.ToByte(NudTamanhoSenha.Value);
-                _tipoSenha = DefinirTipoSenha();
-
                 switch (_modo) {
-                    case 1: _login.Criar(); break;
-                    case 2: _login.AlterarLogin(); break;
-                    case 3: _login.AlterarSenha(); break;
+                    case 1: {
+                            _usuario = TxtUsuario.Text;
+                            _observacao = TxtDados.Text;
+                            _tamanho = Convert.ToByte(NudTamanhoSenha.Value);
+                            _tipoSenha = DefinirTipoSenha();
+                            _senha = TxtSenha.Text;
+                            _codigoLocal = UcLocal.ObterLocal();
+
+                            _login.Criar();
+                            break;
+                        }
+                    case 2: {
+                            _codigoLogin = Convert.ToInt64(DgvLogins.CurrentRow.Cells[0].Value.ToString());
+                            _usuario = TxtUsuario.Text;
+                            _observacao = TxtDados.Text;
+                            _tamanho = Convert.ToByte(NudTamanhoSenha.Value);
+                            _codigoLocal = UcLocal.ObterLocal();
+
+                            _login.AlterarLogin();
+                            break;
+                        }
+                    case 3: {
+                            _codigoLogin = Convert.ToInt64(DgvLogins.CurrentRow.Cells[0].Value.ToString());
+                            _tamanho = Convert.ToByte(NudTamanhoSenha.Value);
+                            _tipoSenha = DefinirTipoSenha();
+                            _senha = TxtSenha.Text;
+                            _codigoLocal = UcLocal.ObterLocal();
+
+                            _login.AlterarSenha();
+                            break;
+                        }
                 }
 
                 DgvLocais.Enabled = true;
@@ -288,6 +308,7 @@ namespace StrongBox.WinForms.Janelas {
 
                 HabilitarMenus(true);
                 HabilitarEdicaoLogin(false);
+                HabilitarEdicaoSenha(false);
                 LimparCampos();
                 LimparDados();
 

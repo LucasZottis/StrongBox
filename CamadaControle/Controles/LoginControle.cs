@@ -29,15 +29,15 @@ namespace StrongBox.CamadaControle.Controles {
             LoginRepositorio.Inserir(_sqlInserir, login);
         }
         public void AlterarLogin() {
-            Login login = new Login(_form.ObterCodigoLogin(), _form.ObterUsuario(), _form.ObterObservacao(), _form.ObterTamanho(), (TipoDeSenha) _form.ObterTipoSenha(), _form.ObterSenha(), _form.ObterLocal());
+            Login login = new Login(_form.ObterCodigoLogin(), _form.ObterUsuario(), _form.ObterObservacao(), _form.ObterTamanho(), _form.ObterLocal());
             LoginRepositorio.Atualizar(_sqlAtualizarLogin, login);
         }
         public void AlterarSenha() {
-            Login login = new Login(_form.ObterCodigoLogin(), _form.ObterUsuario(), _form.ObterObservacao(), _form.ObterTamanho(), (TipoDeSenha) _form.ObterTipoSenha(), _form.ObterSenha(), _form.ObterLocal());
+            Login login = new Login(_form.ObterCodigoLogin(), _form.ObterTamanho(), (TipoDeSenha) _form.ObterTipoSenha(), _form.ObterSenha(), _form.ObterLocal());
             LoginRepositorio.Atualizar(_sqlAtualizarSenha, login);
         }
         public void Excluir() {
-            Login login = new Login(_form.ObterCodigoLogin(), _form.ObterUsuario(), _form.ObterObservacao(), _form.ObterTamanho(), (TipoDeSenha) _form.ObterTipoSenha(), _form.ObterSenha(), _form.ObterLocal());
+            Login login = new Login(_form.ObterCodigoLogin());
             login.AtivarDesativar(true);
             LoginRepositorio.Deletar(_sqlDeletar, login);
         }
