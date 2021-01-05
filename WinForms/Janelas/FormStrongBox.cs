@@ -232,12 +232,9 @@ namespace StrongBox.WinForms.Janelas {
             HabilitarMenus(false);
 
             if (VerificarLinhaSelecionada(DgvLogins)) {
-                TxtUsuario.Text = DgvLogins.CurrentRow.Cells[1].Value.ToString().Trim();
-                TxtDados.Text = DgvLogins.CurrentRow.Cells[2].Value.ToString().Trim();
                 TxtSenha.Text = DgvLogins.CurrentRow.Cells[3].Value.ToString().Trim();
                 NudTamanhoSenha.Value = Convert.ToByte(DgvLogins.CurrentRow.Cells[4].Value.ToString());
                 MarcarTipoSenha(Convert.ToInt32(DgvLogins.CurrentRow.Cells[5].Value.ToString()));
-                _codigoLocal = Convert.ToInt64(DgvLogins.CurrentRow.Cells[6].Value.ToString().Trim());
 
                 _modo = 3;
             }
@@ -294,7 +291,7 @@ namespace StrongBox.WinForms.Janelas {
                             _tamanho = Convert.ToByte(NudTamanhoSenha.Value);
                             _tipoSenha = DefinirTipoSenha();
                             _senha = TxtSenha.Text;
-                            _codigoLocal = UcLocal.ObterLocal();
+                            _codigoLocal = Convert.ToInt64(DgvLogins.CurrentRow.Cells[6].Value.ToString().Trim());
 
                             _login.AlterarSenha();
                             break;
