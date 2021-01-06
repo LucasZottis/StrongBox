@@ -28,13 +28,13 @@ namespace StrongBox.CamadaModelo.Repositorios {
             using (SqlConnection conexao = new SqlConnection(_cadeiaConexao)) {
                 using (SqlCommand comando = new SqlCommand(sql, conexao)) {
                     comando.Parameters.AddWithValue("@Codigo", login.Codigo);
-                    comando.Parameters.AddWithValue("@Usuario", login.Usuario);
-                    comando.Parameters.AddWithValue("@Observacao", login.Observacao);
-                    comando.Parameters.AddWithValue("@Senha", login.Senha);
+                    if (login.Usuario != null) comando.Parameters.AddWithValue("@Usuario", login.Usuario);
+                    if (login.Observacao != null) comando.Parameters.AddWithValue("@Observacao", login.Observacao);
+                    if (login.Senha != null) comando.Parameters.AddWithValue("@Senha", login.Senha);
                     comando.Parameters.AddWithValue("@Tamanho", login.Tamanho);
                     comando.Parameters.AddWithValue("@TipoSenha", login.TipoSenha);
                     comando.Parameters.AddWithValue("@CodigoLocal", login.CodigoLocal);
-
+                    
                     conexao.Open();
                     if (comando.ExecuteNonQuery() < 1) throw new Exception("Registro não foi atualizado!");
                     conexao.Close();

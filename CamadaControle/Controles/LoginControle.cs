@@ -11,7 +11,7 @@ namespace StrongBox.CamadaControle.Controles {
         private readonly ILogin _form;
 
         private readonly string _sqlInserir = "INSERT INTO LOGIN (USUARIO, OBS, SENHA, TAMANHO, TIPO_SENHA, COD_LOCAL) VALUES (@Usuario, @Observacao, @Senha, @Tamanho, @TipoSenha, @CodigoLocal)";
-        private readonly string _sqlAtualizarLogin = "UPDATE LOGIN SET USUARIO = @Usuario, OBS = @Observacao, SENHA = @Senha, TAMANHO = @Tamanho, TIPO_SENHA = @TipoSenha, COD_LOCAL = @CodigoLocal WHERE CODIGO = @Codigo";
+        private readonly string _sqlAtualizarLogin = "UPDATE LOGIN SET USUARIO = @Usuario, OBS = @Observacao, TAMANHO = @Tamanho, COD_LOCAL = @CodigoLocal WHERE CODIGO = @Codigo";
         private readonly string _sqlAtualizarSenha = "UPDATE LOGIN SET SENHA = @Senha, TAMANHO = @Tamanho, TIPO_SENHA = @TipoSenha WHERE CODIGO = @Codigo";
         private readonly string _sqlDeletar = "UPDATE LOGIN SET EXCLUIDO = @Excluido WHERE CODIGO = @Codigo";
 
