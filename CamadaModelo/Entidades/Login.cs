@@ -13,6 +13,9 @@ namespace StrongBox.CamadaModelo.Entidades {
         public long CodigoLocal { get; private set; }
         private bool _excluido;
 
+        /// <summary>
+        /// Construtor de inserção.
+        /// </summary>
         public Login(string usuario, string observacao, byte tamanho, TipoDeSenha tipo, string senha, long codigoLocal) {
             if (usuario.Length > 50 || usuario.Length < 4) throw new LoginException("Login deve ter de 4 à 50 caracteres."); else this.Usuario = usuario;
             if (string.IsNullOrEmpty(observacao)) {
@@ -25,6 +28,9 @@ namespace StrongBox.CamadaModelo.Entidades {
             if (Convert.ToByte(tipo) < 0 || Convert.ToByte(tipo) > 2) throw new LoginException("Tipo de senha selecionado não existe."); else TipoSenha = tipo;
             if (codigoLocal < 1) throw new LoginException("Local inexistente."); else this.CodigoLocal = codigoLocal;
         }
+        /// <summary>
+        /// Construtor de atualização de login.
+        /// </summary>
         public Login(long codigo, string usuario, string observacao, byte tamanho, long codigoLocal) {
             if (codigo < 0) throw new LoginException("ID não pode ser menor que 0."); else this.Codigo = codigo;
             if (usuario.Length > 50 || usuario.Length < 4) throw new LoginException("Login deve ter de 4 à 50 caracteres."); else this.Usuario = usuario;
@@ -36,6 +42,9 @@ namespace StrongBox.CamadaModelo.Entidades {
             if (tamanho < 4 || tamanho > 20) throw new LoginException("Tamanho da deve ser entre 4 e 20 caracteres."); else this.Tamanho = tamanho;
             if (codigoLocal < 1) throw new LoginException("Local inexistente."); else this.CodigoLocal = codigoLocal;
         }
+        /// <summary>
+        /// Construtor de atualização de senha.
+        /// </summary>
         public Login(long codigo, byte tamanho, TipoDeSenha tipo, string senha, long codigoLocal) {
             if (codigo < 0) throw new LoginException("ID não pode ser menor que 0."); else this.Codigo = codigo;
             if (tamanho < 4 || tamanho > 20) throw new LoginException("Tamanho da deve ser entre 4 e 20 caracteres."); else this.Tamanho = tamanho;
@@ -43,6 +52,9 @@ namespace StrongBox.CamadaModelo.Entidades {
             if (Convert.ToInt32(tipo) < 1 || Convert.ToInt32(tipo) > 3) throw new LoginException("Tipo de senha selecionado não existe."); else TipoSenha = tipo;
             if (codigoLocal < 1) throw new LoginException("Local inexistente."); else this.CodigoLocal = codigoLocal;
         }
+        /// <summary>
+        /// Construtor de exclusão.
+        /// </summary>
         public Login(long codigo) {
             if (codigo < 0) throw new LoginException("ID não pode ser menor que 0."); else this.Codigo = codigo;
         }

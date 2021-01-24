@@ -204,7 +204,6 @@ namespace StrongBox.WinForms.Janelas {
             UcLocal.DefinirFonte(_login.PreecherComboBox());
 
             if (VerificarLinhaSelecionada(DgvLogins)) {
-                _codigoLogin = Convert.ToInt64(DgvLogins.CurrentRow.Cells[0].Value.ToString());
                 TxtUsuario.Text = DgvLogins.CurrentRow.Cells[1].Value.ToString().Trim();
                 TxtDados.Text = DgvLogins.CurrentRow.Cells[2].Value.ToString().Trim();
                 NudTamanhoSenha.Value = Convert.ToByte(DgvLogins.CurrentRow.Cells[4].Value.ToString());

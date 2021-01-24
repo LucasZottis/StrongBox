@@ -34,7 +34,7 @@ namespace StrongBox.CamadaModelo.Repositorios {
                     comando.Parameters.AddWithValue("@Tamanho", login.Tamanho);
                     comando.Parameters.AddWithValue("@TipoSenha", login.TipoSenha);
                     comando.Parameters.AddWithValue("@CodigoLocal", login.CodigoLocal);
-
+                    
                     conexao.Open();
                     if (comando.ExecuteNonQuery() < 1) throw new Exception("Registro não foi atualizado!");
                     conexao.Close();
