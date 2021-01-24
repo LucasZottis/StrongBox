@@ -1,15 +1,16 @@
 ﻿using System.Reflection;
+using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // As informações gerais sobre um assembly são controladas por
 // conjunto de atributos. Altere estes valores de atributo para modificar as informações
-// associada a um assembly.
-[assembly: AssemblyTitle("CamadaModelo")]
-[assembly: AssemblyDescription("DLL de entidades do StrongBox")]
+// associadas a um assembly.
+[assembly: AssemblyTitle("VerificaBanco")]
+[assembly: AssemblyDescription("Executavel para verificar se existe conexão com o banco de dados")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Lucas Zottis")]
-[assembly: AssemblyProduct("CamadaModelo")]
-[assembly: AssemblyCopyright("Copyright ©  2020")]
+[assembly: AssemblyProduct("VerificaBanco")]
+[assembly: AssemblyCopyright("Copyright ©  2021")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -19,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // O GUID a seguir será destinado à ID de typelib se este projeto for exposto para COM
-[assembly: Guid("f5ff74c4-cf87-4bbf-a111-d05f31cd4d34")]
+[assembly: Guid("891deff0-f602-4450-981f-b5ddfee75dd6")]
 
 // As informações da versão de um assembly consistem nos quatro valores a seguir:
 //

@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox.CamadaControle", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox.WinForms", "WinForms\StrongBox.WinForms.csproj", "{D2C54C01-4723-4178-8231-086E24F2A86C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerificaBanco", "VerificaBanco\VerificaBanco.csproj", "{891DEFF0-F602-4450-981F-B5DDFEE75DD6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +29,10 @@ Global
 		{D2C54C01-4723-4178-8231-086E24F2A86C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2C54C01-4723-4178-8231-086E24F2A86C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2C54C01-4723-4178-8231-086E24F2A86C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{891DEFF0-F602-4450-981F-B5DDFEE75DD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891DEFF0-F602-4450-981F-B5DDFEE75DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891DEFF0-F602-4450-981F-B5DDFEE75DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891DEFF0-F602-4450-981F-B5DDFEE75DD6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

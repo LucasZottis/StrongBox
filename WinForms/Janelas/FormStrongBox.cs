@@ -3,6 +3,7 @@ using StrongBox.CamadaControle.Interfaces;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using VerificaBanco;
 
 namespace StrongBox.WinForms.Janelas {
     public partial class FormStrongBox : Form, ICategoria, ILocal, ILogin {
@@ -13,6 +14,8 @@ namespace StrongBox.WinForms.Janelas {
         private readonly DataTable _tabCategoria;
         private readonly DataTable _tabLocal;
         private readonly DataTable _tabLogin;
+
+        private Form _janelaAberta;
 
         private string _nome;
         private string _prefixo;
@@ -73,7 +76,6 @@ namespace StrongBox.WinForms.Janelas {
         private void LimparCampos() {
             TxtUsuario.Clear();
             TxtDados.Clear();
-            TxtSenha.Clear();
             TxtNomeLocal.Clear();
             TxtNomeCategoria.Clear();
             TxtPrefixo.Clear();
@@ -133,15 +135,10 @@ namespace StrongBox.WinForms.Janelas {
         private void HabilitarAdicaoLogin(bool habilitar) {
             this.FlpDadosLogins.Enabled = habilitar;
             this.GbxDadosUsuario.Enabled = habilitar;
-            this.GbxDadosSenha.Enabled = habilitar;
         }
         private void HabilitarEdicaoLogin(bool habilitar) {
             this.FlpDadosLogins.Enabled = habilitar;
             this.GbxDadosUsuario.Enabled = habilitar;
-        }
-        private void HabilitarEdicaoSenha(bool habilitar) {
-            this.FlpDadosLogins.Enabled = habilitar;
-            this.GbxDadosSenha.Enabled = habilitar;
         }
 
         // -------------------------------------------------------------------------------------------------------------
@@ -184,16 +181,10 @@ namespace StrongBox.WinForms.Janelas {
         public long ObterLocal() => _codigoLocal;
 
         // --------------------------------------------------------------------
-
-        private void UcLocal_Leave(object sender, EventArgs e) {
-            if (!UcLocal.VerificarSeEstaVazio()) BtnGerarSenha.Enabled = true;
-            else BtnGerarSenha.Enabled = false;
-        }
         private void TsmAdicionarLogin_Click(object sender, EventArgs e) {
             DgvCategorias.Enabled = false;
             DgvLocais.Enabled = false;
             DgvLogins.Enabled = false;
-            GbxDadosSenha.Enabled = true;
 
             HabilitarEdicaoLogin(true);
             HabilitarMenus(false);
@@ -217,6 +208,7 @@ namespace StrongBox.WinForms.Janelas {
                 TxtUsuario.Text = DgvLogins.CurrentRow.Cells[1].Value.ToString().Trim();
                 TxtDados.Text = DgvLogins.CurrentRow.Cells[2].Value.ToString().Trim();
                 NudTamanhoSenha.Value = Convert.ToByte(DgvLogins.CurrentRow.Cells[4].Value.ToString());
+                MarcarTipoSenha(Convert.ToInt32(DgvLogins.CurrentRow.Cells[5].Value.ToString()));
                 UcLocal.DefinirLocal(DgvLogins.CurrentRow.Cells[6].Value.ToString().Trim());
 
                 _modo = 2;
@@ -226,21 +218,42 @@ namespace StrongBox.WinForms.Janelas {
             DgvCategorias.Enabled = false;
             DgvLocais.Enabled = false;
             DgvLogins.Enabled = false;
-            BtnGerarSenha.Enabled = true;
 
-            HabilitarEdicaoSenha(true);
             HabilitarMenus(false);
 
             if (VerificarLinhaSelecionada(DgvLogins)) {
-                TxtUsuario.Text = DgvLogins.CurrentRow.Cells[1].Value.ToString().Trim();
-                TxtDados.Text = DgvLogins.CurrentRow.Cells[2].Value.ToString().Trim();
-                TxtSenha.Text = DgvLogins.CurrentRow.Cells[3].Value.ToString().Trim();
-                NudTamanhoSenha.Value = Convert.ToByte(DgvLogins.CurrentRow.Cells[4].Value.ToString());
-                MarcarTipoSenha(Convert.ToInt32(DgvLogins.CurrentRow.Cells[5].Value.ToString()));
+                _codigoLogin = Convert.ToInt64(DgvLogins.CurrentRow.Cells[0].Value.ToString());
+                _usuario = DgvLogins.CurrentRow.Cells[1].Value.ToString().Trim();
+                _tamanho = Convert.ToByte(DgvLogins.CurrentRow.Cells[4].Value.ToString());
+                _tipoSenha = Convert.ToInt32(DgvLogins.CurrentRow.Cells[5].Value.ToString());
                 _codigoLocal = Convert.ToInt64(DgvLogins.CurrentRow.Cells[6].Value.ToString().Trim());
-
-                _modo = 3;
+                _senha = _login.GerarSenha();
             }
+
+            DialogResult escolha = MessageBox.Show($"Deseja mesmo alterar a senha do usuário {_usuario} em {DgvLogins.CurrentRow.Cells[8].Value.ToString().Trim()}?", ".:: STRONG BOX ::. - Alteração de senha", MessageBoxButtons.YesNo);
+
+            try {
+                if (escolha == DialogResult.Yes) {
+                    _login.AlterarSenha();
+                    MessageBox.Show("Senha alterada!", ".:: STRONG BOX ::.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                } else {
+                    MessageBox.Show("Senha não alterada!", ".:: STRONG BOX ::.", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            } catch (Exception erro) {
+                MessageBox.Show(erro.Message, ".:: STRONG BOX ::. - Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+            DgvLocais.Enabled = true;
+            DgvLogins.Enabled = true;
+            DgvCategorias.Enabled = true;
+            FlpDadosCategoria.Enabled = false;
+
+            HabilitarMenus(true);
+            HabilitarEdicaoLogin(false);
+            LimparCampos();
+            LimparDados();
+
+            DgvLogins.DataSource = _login.BuscarLogins();
         }
         private void TsmExcluirLogin_Click(object sender, EventArgs e) {
             try {
@@ -273,8 +286,8 @@ namespace StrongBox.WinForms.Janelas {
                             _observacao = TxtDados.Text;
                             _tamanho = Convert.ToByte(NudTamanhoSenha.Value);
                             _tipoSenha = DefinirTipoSenha();
-                            _senha = TxtSenha.Text;
                             _codigoLocal = UcLocal.ObterLocal();
+                            _senha = _login.GerarSenha();
 
                             _login.Criar();
                             break;
@@ -289,16 +302,6 @@ namespace StrongBox.WinForms.Janelas {
                             _login.AlterarLogin();
                             break;
                         }
-                    case 3: {
-                            _codigoLogin = Convert.ToInt64(DgvLogins.CurrentRow.Cells[0].Value.ToString());
-                            _tamanho = Convert.ToByte(NudTamanhoSenha.Value);
-                            _tipoSenha = DefinirTipoSenha();
-                            _senha = TxtSenha.Text;
-                            _codigoLocal = UcLocal.ObterLocal();
-
-                            _login.AlterarSenha();
-                            break;
-                        }
                 }
 
                 DgvLocais.Enabled = true;
@@ -308,7 +311,6 @@ namespace StrongBox.WinForms.Janelas {
 
                 HabilitarMenus(true);
                 HabilitarEdicaoLogin(false);
-                HabilitarEdicaoSenha(false);
                 LimparCampos();
                 LimparDados();
 
@@ -323,24 +325,11 @@ namespace StrongBox.WinForms.Janelas {
             DgvCategorias.Enabled = true;
             DgvLocais.Enabled = true;
             DgvLogins.Enabled = true;
-            BtnGerarSenha.Enabled = false;
             this.HabilitarAdicaoLogin(false);
             this.HabilitarEdicaoLogin(false);
-            this.HabilitarEdicaoSenha(false);
             this.HabilitarMenus(true);
             this.LimparCampos();
             UcLocal.LimparUcLocal();
-        }
-        private void BtnGerarSenha_Click(object sender, EventArgs e) {
-            switch (_modo) {
-                case 1: _codigoLocal = UcLocal.ObterLocal(); break;
-                case 2: _codigoLocal = UcLocal.ObterLocal(); break;
-                case 3: _codigoLocal = Convert.ToInt64(DgvLogins.CurrentRow.Cells[6].Value.ToString().Trim()); break;
-            }
-            _tamanho = Convert.ToByte(NudTamanhoSenha.Value);
-            _tipoSenha = DefinirTipoSenha();
-
-            TxtSenha.Text = _login.GerarSenha();
         }
         
         // -------------------------------------------------------------------------------------------------------------
@@ -497,6 +486,11 @@ namespace StrongBox.WinForms.Janelas {
             this.FlpDadosCategoria.Enabled = false;
             this.HabilitarMenus(true);
             LimparCampos();
+        }
+
+        private void tsmBancoDados_Click(object sender, EventArgs e) {
+            _janelaAberta = new FormVerificaBanco();
+            _janelaAberta.Show();
         }
     }
 }

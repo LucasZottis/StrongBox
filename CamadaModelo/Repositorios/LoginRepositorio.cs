@@ -28,9 +28,9 @@ namespace StrongBox.CamadaModelo.Repositorios {
             using (SqlConnection conexao = new SqlConnection(_cadeiaConexao)) {
                 using (SqlCommand comando = new SqlCommand(sql, conexao)) {
                     comando.Parameters.AddWithValue("@Codigo", login.Codigo);
-                    comando.Parameters.AddWithValue("@Usuario", login.Usuario);
-                    comando.Parameters.AddWithValue("@Observacao", login.Observacao);
-                    comando.Parameters.AddWithValue("@Senha", login.Senha);
+                    if (!string.IsNullOrEmpty(login.Usuario)) comando.Parameters.AddWithValue("@Usuario", login.Usuario);
+                    if (!string.IsNullOrEmpty(login.Observacao)) comando.Parameters.AddWithValue("@Observacao", login.Observacao);
+                    if (!string.IsNullOrEmpty(login.Senha)) comando.Parameters.AddWithValue("@Senha", login.Senha);
                     comando.Parameters.AddWithValue("@Tamanho", login.Tamanho);
                     comando.Parameters.AddWithValue("@TipoSenha", login.TipoSenha);
                     comando.Parameters.AddWithValue("@CodigoLocal", login.CodigoLocal);

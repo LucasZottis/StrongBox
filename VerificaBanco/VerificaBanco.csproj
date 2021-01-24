@@ -4,36 +4,34 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{D2C54C01-4723-4178-8231-086E24F2A86C}</ProjectGuid>
+    <ProjectGuid>{891DEFF0-F602-4450-981F-B5DDFEE75DD6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>StrongBox.WinForms</RootNamespace>
-    <AssemblyName>StrongBox</AssemblyName>
+    <RootNamespace>VerificaBanco</RootNamespace>
+    <AssemblyName>VerificaBanco</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
+    <OutputPath>..\WinForms\bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>none</DebugType>
+    <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>..\..\..\Lançamento\StrongBox\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>StrongBox.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -51,34 +49,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Componentes\UcCbxCategoria.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Componentes\UcCbxCategoria.Designer.cs">
-      <DependentUpon>UcCbxCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\UcCbxLocal.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Componentes\UcCbxLocal.Designer.cs">
-      <DependentUpon>UcCbxLocal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\FormStrongBox.cs">
+    <Compile Include="BancoDeDados.cs" />
+    <Compile Include="Configuracao.cs" />
+    <Compile Include="FormVerificaBanco.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Janelas\FormStrongBox.Designer.cs">
-      <DependentUpon>FormStrongBox.cs</DependentUpon>
+    <Compile Include="FormVerificaBanco.Designer.cs">
+      <DependentUpon>FormVerificaBanco.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Componentes\UcCbxCategoria.resx">
-      <DependentUpon>UcCbxCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Componentes\UcCbxLocal.resx">
-      <DependentUpon>UcCbxLocal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Janelas\FormStrongBox.resx">
-      <DependentUpon>FormStrongBox.cs</DependentUpon>
+    <Compile Include="Servico.cs" />
+    <EmbeddedResource Include="FormVerificaBanco.resx">
+      <DependentUpon>FormVerificaBanco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -101,32 +84,22 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config" />
+    <None Include="Resources\Confirm.png" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CamadaControle\StrongBox.CamadaControle.csproj">
-      <Project>{AF881859-9BDA-413D-8727-334B0DEB1742}</Project>
-      <Name>StrongBox.CamadaControle</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CamadaModelo\StrongBox.CamadaModelo.csproj">
-      <Project>{F5FF74C4-CF87-4BBF-A111-D05F31CD4D34}</Project>
-      <Name>StrongBox.CamadaModelo</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\VerificaBanco\VerificaBanco.csproj">
-      <Project>{891deff0-f602-4450-981f-b5ddfee75dd6}</Project>
-      <Name>VerificaBanco</Name>
-    </ProjectReference>
+    <None Include="Resources\Cancelar_20x20.png" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Recursos\Buscar.png" />
-    <Content Include="Recursos\Cancelar.png" />
-    <Content Include="Recursos\Cancelar2_20x20.png" />
-    <Content Include="Recursos\Confirm.png" />
-    <Content Include="Recursos\Confirm20x20.png" />
-    <Content Include="Recursos\Data Base.png" />
-    <Content Include="Recursos\Salvar.png" />
-    <Content Include="Recursos\Senha1.png" />
-    <Content Include="StrongBox.ico" />
+    <None Include="Resources\Buscar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Data Base.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salvar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Confirm20x20.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

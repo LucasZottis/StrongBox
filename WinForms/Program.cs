@@ -1,6 +1,8 @@
 ﻿using StrongBox.WinForms.Janelas;
 using System;
+using System.Configuration;
 using System.Windows.Forms;
+using VerificaBanco;
 
 namespace StrongBox.WinForms {
     static class Program {
@@ -12,8 +14,14 @@ namespace StrongBox.WinForms {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            Application.Run(new FormBancoDeDados());
-            Application.Run(new FormStrongBox());
+            
+            try {
+                BancoDeDados banco = new BancoDeDados(ConfigurationManager.ConnectionStrings[1].ConnectionString);
+                if (banco.TestarConexao() == false) Application.Run(new FormVerificaBanco());
+                Application.Run(new FormStrongBox());
+            } catch (Exception erro) {
+                MessageBox.Show(erro.Message, ".:: Strong Box ::. | Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

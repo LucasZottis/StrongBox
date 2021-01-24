@@ -1,5 +1,5 @@
-﻿namespace StrongBox.WinForms.Janelas {
-    partial class FormBancoDeDados {
+﻿namespace VerificaBanco {
+    partial class FormVerificaBanco {
         /// <summary>
         /// Required designer variable.
         /// </summary>
@@ -28,6 +28,7 @@
             this.BtnNegarServer = new System.Windows.Forms.Button();
             this.BtnConfirmarDb = new System.Windows.Forms.Button();
             this.BtnConfirmarServer = new System.Windows.Forms.Button();
+            this.TxtDataSource = new System.Windows.Forms.TextBox();
             this.LblDataSource = new System.Windows.Forms.Label();
             this.BtnBuscarBanco = new System.Windows.Forms.Button();
             this.TxtNomeDb = new System.Windows.Forms.TextBox();
@@ -43,7 +44,6 @@
             this.panel1 = new System.Windows.Forms.Panel();
             this.LblCadeiaConexao = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.TxtDataSource = new System.Windows.Forms.TextBox();
             this.PnlDadosDb.SuspendLayout();
             this.PnlEstadoDb.SuspendLayout();
             this.panel1.SuspendLayout();
@@ -73,7 +73,7 @@
             // BtnNegarDb
             // 
             this.BtnNegarDb.Enabled = false;
-            this.BtnNegarDb.Image = global::StrongBox.WinForms.Properties.Resources.Cancelar2_20x20;
+            this.BtnNegarDb.Image = global::VerificaBanco.Properties.Resources.Cancelar_20x20;
             this.BtnNegarDb.Location = new System.Drawing.Point(573, 72);
             this.BtnNegarDb.Name = "BtnNegarDb";
             this.BtnNegarDb.Size = new System.Drawing.Size(40, 30);
@@ -84,7 +84,7 @@
             // BtnNegarServer
             // 
             this.BtnNegarServer.Enabled = false;
-            this.BtnNegarServer.Image = global::StrongBox.WinForms.Properties.Resources.Cancelar2_20x20;
+            this.BtnNegarServer.Image = global::VerificaBanco.Properties.Resources.Cancelar_20x20;
             this.BtnNegarServer.Location = new System.Drawing.Point(573, 5);
             this.BtnNegarServer.Name = "BtnNegarServer";
             this.BtnNegarServer.Size = new System.Drawing.Size(40, 30);
@@ -95,7 +95,7 @@
             // BtnConfirmarDb
             // 
             this.BtnConfirmarDb.Enabled = false;
-            this.BtnConfirmarDb.Image = global::StrongBox.WinForms.Properties.Resources.Confirm20x20;
+            this.BtnConfirmarDb.Image = global::VerificaBanco.Properties.Resources.Confirm20x20;
             this.BtnConfirmarDb.Location = new System.Drawing.Point(527, 72);
             this.BtnConfirmarDb.Name = "BtnConfirmarDb";
             this.BtnConfirmarDb.Size = new System.Drawing.Size(40, 30);
@@ -105,13 +105,20 @@
             // 
             // BtnConfirmarServer
             // 
-            this.BtnConfirmarServer.Image = global::StrongBox.WinForms.Properties.Resources.Confirm20x20;
+            this.BtnConfirmarServer.Image = global::VerificaBanco.Properties.Resources.Confirm20x20;
             this.BtnConfirmarServer.Location = new System.Drawing.Point(527, 5);
             this.BtnConfirmarServer.Name = "BtnConfirmarServer";
             this.BtnConfirmarServer.Size = new System.Drawing.Size(40, 30);
             this.BtnConfirmarServer.TabIndex = 6;
             this.BtnConfirmarServer.UseVisualStyleBackColor = true;
             this.BtnConfirmarServer.Click += new System.EventHandler(this.BtnConfirmarServer_Click);
+            // 
+            // TxtDataSource
+            // 
+            this.TxtDataSource.Location = new System.Drawing.Point(108, 8);
+            this.TxtDataSource.Name = "TxtDataSource";
+            this.TxtDataSource.Size = new System.Drawing.Size(414, 25);
+            this.TxtDataSource.TabIndex = 5;
             // 
             // LblDataSource
             // 
@@ -125,7 +132,7 @@
             // BtnBuscarBanco
             // 
             this.BtnBuscarBanco.Enabled = false;
-            this.BtnBuscarBanco.Image = global::StrongBox.WinForms.Properties.Resources.Buscar;
+            this.BtnBuscarBanco.Image = global::VerificaBanco.Properties.Resources.Buscar;
             this.BtnBuscarBanco.Location = new System.Drawing.Point(527, 40);
             this.BtnBuscarBanco.Name = "BtnBuscarBanco";
             this.BtnBuscarBanco.Size = new System.Drawing.Size(86, 28);
@@ -168,7 +175,7 @@
             // BtnSalvarConfig
             // 
             this.BtnSalvarConfig.Enabled = false;
-            this.BtnSalvarConfig.Image = global::StrongBox.WinForms.Properties.Resources.Salvar;
+            this.BtnSalvarConfig.Image = global::VerificaBanco.Properties.Resources.Salvar;
             this.BtnSalvarConfig.Location = new System.Drawing.Point(314, 105);
             this.BtnSalvarConfig.Name = "BtnSalvarConfig";
             this.BtnSalvarConfig.Size = new System.Drawing.Size(300, 30);
@@ -182,7 +189,7 @@
             // BtnTestarDb
             // 
             this.BtnTestarDb.Enabled = false;
-            this.BtnTestarDb.Image = global::StrongBox.WinForms.Properties.Resources.Data_Base;
+            this.BtnTestarDb.Image = global::VerificaBanco.Properties.Resources.Data_Base;
             this.BtnTestarDb.Location = new System.Drawing.Point(4, 105);
             this.BtnTestarDb.Name = "BtnTestarDb";
             this.BtnTestarDb.Size = new System.Drawing.Size(300, 30);
@@ -263,14 +270,7 @@
             this.label1.TabIndex = 2;
             this.label1.Text = "Cadeia de conexão";
             // 
-            // TxtDataSource
-            // 
-            this.TxtDataSource.Location = new System.Drawing.Point(108, 8);
-            this.TxtDataSource.Name = "TxtDataSource";
-            this.TxtDataSource.Size = new System.Drawing.Size(414, 25);
-            this.TxtDataSource.TabIndex = 5;
-            // 
-            // FormBancoDeDados
+            // FormVerificaBanco
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
@@ -283,7 +283,7 @@
             this.Controls.Add(this.PnlDadosDb);
             this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
-            this.Name = "FormBancoDeDados";
+            this.Name = "FormVerificaBanco";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Banco de dados";
             this.Load += new System.EventHandler(this.FormVerificaBanco_Load);

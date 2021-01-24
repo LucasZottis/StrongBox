@@ -33,6 +33,11 @@
             this.TpLogins = new System.Windows.Forms.TabPage();
             this.FlpDadosLogins = new System.Windows.Forms.FlowLayoutPanel();
             this.GbxDadosUsuario = new System.Windows.Forms.GroupBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.RbtnSenhaNumerica = new System.Windows.Forms.RadioButton();
+            this.RbtnSenhaAlfaNumerica = new System.Windows.Forms.RadioButton();
+            this.RbtnSenhaAlfabetica = new System.Windows.Forms.RadioButton();
             this.UcLocal = new StrongBox.WinForms.Componentes.UcCbxLocal();
             this.NudTamanhoSenha = new System.Windows.Forms.NumericUpDown();
             this.LblTamanhoSenha = new System.Windows.Forms.Label();
@@ -40,13 +45,6 @@
             this.LblUsuario = new System.Windows.Forms.Label();
             this.TxtDados = new System.Windows.Forms.TextBox();
             this.TxtUsuario = new System.Windows.Forms.TextBox();
-            this.GbxDadosSenha = new System.Windows.Forms.GroupBox();
-            this.BtnGerarSenha = new System.Windows.Forms.Button();
-            this.RbtnSenhaAlfaNumerica = new System.Windows.Forms.RadioButton();
-            this.RbtnSenhaAlfabetica = new System.Windows.Forms.RadioButton();
-            this.RbtnSenhaNumerica = new System.Windows.Forms.RadioButton();
-            this.TxtSenha = new System.Windows.Forms.TextBox();
-            this.LblSenha = new System.Windows.Forms.Label();
             this.BtnSalvarLogins = new System.Windows.Forms.Button();
             this.BtnCancelarLogins = new System.Windows.Forms.Button();
             this.DgvLogins = new System.Windows.Forms.DataGridView();
@@ -100,12 +98,15 @@
             this.TsmCriarCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmAlterarCategoria = new System.Windows.Forms.ToolStripMenuItem();
             this.TsmExcluirCategoria = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.configuraçõesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tsmBancoDados = new System.Windows.Forms.ToolStripMenuItem();
             this.TcPrincipal.SuspendLayout();
             this.TpLogins.SuspendLayout();
             this.FlpDadosLogins.SuspendLayout();
             this.GbxDadosUsuario.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudTamanhoSenha)).BeginInit();
-            this.GbxDadosSenha.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLogins)).BeginInit();
             this.MsLogins.SuspendLayout();
             this.TpLocais.SuspendLayout();
@@ -118,6 +119,7 @@
             this.GbxDadosDeCategoria.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvCategorias)).BeginInit();
             this.MsCategorias.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // TcPrincipal
@@ -126,10 +128,10 @@
             this.TcPrincipal.Controls.Add(this.TpLocais);
             this.TcPrincipal.Controls.Add(this.TpCategorias);
             this.TcPrincipal.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TcPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.TcPrincipal.Location = new System.Drawing.Point(0, 24);
             this.TcPrincipal.Name = "TcPrincipal";
             this.TcPrincipal.SelectedIndex = 0;
-            this.TcPrincipal.Size = new System.Drawing.Size(1094, 487);
+            this.TcPrincipal.Size = new System.Drawing.Size(1094, 520);
             this.TcPrincipal.TabIndex = 0;
             this.TcPrincipal.SelectedIndexChanged += new System.EventHandler(this.TcPrincipal_SelectedIndexChanged);
             // 
@@ -143,7 +145,7 @@
             this.TpLogins.Location = new System.Drawing.Point(4, 26);
             this.TpLogins.Name = "TpLogins";
             this.TpLogins.Padding = new System.Windows.Forms.Padding(3);
-            this.TpLogins.Size = new System.Drawing.Size(1086, 457);
+            this.TpLogins.Size = new System.Drawing.Size(1086, 490);
             this.TpLogins.TabIndex = 0;
             this.TpLogins.Text = "Logins";
             // 
@@ -151,19 +153,19 @@
             // 
             this.FlpDadosLogins.AutoScroll = true;
             this.FlpDadosLogins.Controls.Add(this.GbxDadosUsuario);
-            this.FlpDadosLogins.Controls.Add(this.GbxDadosSenha);
             this.FlpDadosLogins.Controls.Add(this.BtnSalvarLogins);
             this.FlpDadosLogins.Controls.Add(this.BtnCancelarLogins);
             this.FlpDadosLogins.Dock = System.Windows.Forms.DockStyle.Right;
             this.FlpDadosLogins.Enabled = false;
             this.FlpDadosLogins.Location = new System.Drawing.Point(552, 28);
             this.FlpDadosLogins.Name = "FlpDadosLogins";
-            this.FlpDadosLogins.Size = new System.Drawing.Size(529, 424);
+            this.FlpDadosLogins.Size = new System.Drawing.Size(529, 457);
             this.FlpDadosLogins.TabIndex = 5;
             // 
             // GbxDadosUsuario
             // 
             this.GbxDadosUsuario.BackColor = System.Drawing.Color.Transparent;
+            this.GbxDadosUsuario.Controls.Add(this.groupBox1);
             this.GbxDadosUsuario.Controls.Add(this.UcLocal);
             this.GbxDadosUsuario.Controls.Add(this.NudTamanhoSenha);
             this.GbxDadosUsuario.Controls.Add(this.LblTamanhoSenha);
@@ -174,10 +176,69 @@
             this.GbxDadosUsuario.Enabled = false;
             this.GbxDadosUsuario.Location = new System.Drawing.Point(3, 3);
             this.GbxDadosUsuario.Name = "GbxDadosUsuario";
-            this.GbxDadosUsuario.Size = new System.Drawing.Size(517, 177);
+            this.GbxDadosUsuario.Size = new System.Drawing.Size(517, 228);
             this.GbxDadosUsuario.TabIndex = 2;
             this.GbxDadosUsuario.TabStop = false;
             this.GbxDadosUsuario.Text = "Dados do usuário";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkBox1);
+            this.groupBox1.Controls.Add(this.RbtnSenhaNumerica);
+            this.groupBox1.Controls.Add(this.RbtnSenhaAlfaNumerica);
+            this.groupBox1.Controls.Add(this.RbtnSenhaAlfabetica);
+            this.groupBox1.Location = new System.Drawing.Point(6, 177);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(505, 45);
+            this.groupBox1.TabIndex = 5;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Tipos de senha";
+            // 
+            // checkBox1
+            // 
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Enabled = false;
+            this.checkBox1.Location = new System.Drawing.Point(333, 17);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(166, 21);
+            this.checkBox1.TabIndex = 8;
+            this.checkBox1.Text = "Caracteres especiais";
+            this.checkBox1.UseVisualStyleBackColor = true;
+            // 
+            // RbtnSenhaNumerica
+            // 
+            this.RbtnSenhaNumerica.AutoSize = true;
+            this.RbtnSenhaNumerica.Location = new System.Drawing.Point(6, 18);
+            this.RbtnSenhaNumerica.Name = "RbtnSenhaNumerica";
+            this.RbtnSenhaNumerica.Size = new System.Drawing.Size(89, 21);
+            this.RbtnSenhaNumerica.TabIndex = 5;
+            this.RbtnSenhaNumerica.TabStop = true;
+            this.RbtnSenhaNumerica.Text = "Numérica";
+            this.RbtnSenhaNumerica.UseVisualStyleBackColor = true;
+            // 
+            // RbtnSenhaAlfaNumerica
+            // 
+            this.RbtnSenhaAlfaNumerica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.RbtnSenhaAlfaNumerica.AutoSize = true;
+            this.RbtnSenhaAlfaNumerica.Location = new System.Drawing.Point(207, 16);
+            this.RbtnSenhaAlfaNumerica.Name = "RbtnSenhaAlfaNumerica";
+            this.RbtnSenhaAlfaNumerica.Size = new System.Drawing.Size(117, 21);
+            this.RbtnSenhaAlfaNumerica.TabIndex = 7;
+            this.RbtnSenhaAlfaNumerica.TabStop = true;
+            this.RbtnSenhaAlfaNumerica.Text = "Alfa Numérica";
+            this.RbtnSenhaAlfaNumerica.UseVisualStyleBackColor = true;
+            // 
+            // RbtnSenhaAlfabetica
+            // 
+            this.RbtnSenhaAlfabetica.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.RbtnSenhaAlfabetica.AutoSize = true;
+            this.RbtnSenhaAlfabetica.Location = new System.Drawing.Point(109, 16);
+            this.RbtnSenhaAlfabetica.Name = "RbtnSenhaAlfabetica";
+            this.RbtnSenhaAlfabetica.Size = new System.Drawing.Size(86, 21);
+            this.RbtnSenhaAlfabetica.TabIndex = 6;
+            this.RbtnSenhaAlfabetica.TabStop = true;
+            this.RbtnSenhaAlfabetica.Text = "Afabética";
+            this.RbtnSenhaAlfabetica.UseVisualStyleBackColor = true;
             // 
             // UcLocal
             // 
@@ -188,7 +249,6 @@
             this.UcLocal.Name = "UcLocal";
             this.UcLocal.Size = new System.Drawing.Size(382, 48);
             this.UcLocal.TabIndex = 3;
-            this.UcLocal.Leave += new System.EventHandler(this.UcLocal_Leave);
             // 
             // NudTamanhoSenha
             // 
@@ -257,102 +317,13 @@
             this.TxtUsuario.Size = new System.Drawing.Size(505, 25);
             this.TxtUsuario.TabIndex = 1;
             // 
-            // GbxDadosSenha
-            // 
-            this.GbxDadosSenha.Controls.Add(this.BtnGerarSenha);
-            this.GbxDadosSenha.Controls.Add(this.RbtnSenhaAlfaNumerica);
-            this.GbxDadosSenha.Controls.Add(this.RbtnSenhaAlfabetica);
-            this.GbxDadosSenha.Controls.Add(this.RbtnSenhaNumerica);
-            this.GbxDadosSenha.Controls.Add(this.TxtSenha);
-            this.GbxDadosSenha.Controls.Add(this.LblSenha);
-            this.GbxDadosSenha.Enabled = false;
-            this.GbxDadosSenha.Location = new System.Drawing.Point(3, 186);
-            this.GbxDadosSenha.Name = "GbxDadosSenha";
-            this.GbxDadosSenha.Size = new System.Drawing.Size(517, 142);
-            this.GbxDadosSenha.TabIndex = 3;
-            this.GbxDadosSenha.TabStop = false;
-            this.GbxDadosSenha.Text = "Dados de senha";
-            // 
-            // BtnGerarSenha
-            // 
-            this.BtnGerarSenha.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnGerarSenha.Enabled = false;
-            this.BtnGerarSenha.Image = global::StrongBox.WinForms.Properties.Resources.Senha1;
-            this.BtnGerarSenha.Location = new System.Drawing.Point(6, 104);
-            this.BtnGerarSenha.Name = "BtnGerarSenha";
-            this.BtnGerarSenha.Size = new System.Drawing.Size(505, 32);
-            this.BtnGerarSenha.TabIndex = 8;
-            this.BtnGerarSenha.Text = "Gerar senha";
-            this.BtnGerarSenha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnGerarSenha.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnGerarSenha.UseVisualStyleBackColor = true;
-            this.BtnGerarSenha.Click += new System.EventHandler(this.BtnGerarSenha_Click);
-            // 
-            // RbtnSenhaAlfaNumerica
-            // 
-            this.RbtnSenhaAlfaNumerica.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.RbtnSenhaAlfaNumerica.AutoSize = true;
-            this.RbtnSenhaAlfaNumerica.Location = new System.Drawing.Point(394, 24);
-            this.RbtnSenhaAlfaNumerica.Name = "RbtnSenhaAlfaNumerica";
-            this.RbtnSenhaAlfaNumerica.Size = new System.Drawing.Size(117, 21);
-            this.RbtnSenhaAlfaNumerica.TabIndex = 7;
-            this.RbtnSenhaAlfaNumerica.TabStop = true;
-            this.RbtnSenhaAlfaNumerica.Text = "Alfa Numérica";
-            this.RbtnSenhaAlfaNumerica.UseVisualStyleBackColor = true;
-            // 
-            // RbtnSenhaAlfabetica
-            // 
-            this.RbtnSenhaAlfabetica.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.RbtnSenhaAlfabetica.AutoSize = true;
-            this.RbtnSenhaAlfabetica.Location = new System.Drawing.Point(211, 24);
-            this.RbtnSenhaAlfabetica.Name = "RbtnSenhaAlfabetica";
-            this.RbtnSenhaAlfabetica.Size = new System.Drawing.Size(86, 21);
-            this.RbtnSenhaAlfabetica.TabIndex = 6;
-            this.RbtnSenhaAlfabetica.TabStop = true;
-            this.RbtnSenhaAlfabetica.Text = "Afabética";
-            this.RbtnSenhaAlfabetica.UseVisualStyleBackColor = true;
-            // 
-            // RbtnSenhaNumerica
-            // 
-            this.RbtnSenhaNumerica.AutoSize = true;
-            this.RbtnSenhaNumerica.Location = new System.Drawing.Point(6, 24);
-            this.RbtnSenhaNumerica.Name = "RbtnSenhaNumerica";
-            this.RbtnSenhaNumerica.Size = new System.Drawing.Size(89, 21);
-            this.RbtnSenhaNumerica.TabIndex = 5;
-            this.RbtnSenhaNumerica.TabStop = true;
-            this.RbtnSenhaNumerica.Text = "Numérica";
-            this.RbtnSenhaNumerica.UseVisualStyleBackColor = true;
-            // 
-            // TxtSenha
-            // 
-            this.TxtSenha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtSenha.Location = new System.Drawing.Point(6, 73);
-            this.TxtSenha.MaxLength = 20;
-            this.TxtSenha.Name = "TxtSenha";
-            this.TxtSenha.ReadOnly = true;
-            this.TxtSenha.ShortcutsEnabled = false;
-            this.TxtSenha.Size = new System.Drawing.Size(505, 25);
-            this.TxtSenha.TabIndex = 0;
-            this.TxtSenha.TabStop = false;
-            this.TxtSenha.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // LblSenha
-            // 
-            this.LblSenha.AutoSize = true;
-            this.LblSenha.Location = new System.Drawing.Point(230, 53);
-            this.LblSenha.Name = "LblSenha";
-            this.LblSenha.Size = new System.Drawing.Size(50, 17);
-            this.LblSenha.TabIndex = 1;
-            this.LblSenha.Text = "Senha";
-            // 
             // BtnSalvarLogins
             // 
             this.BtnSalvarLogins.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnSalvarLogins.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnSalvarLogins.Image = global::StrongBox.WinForms.Properties.Resources.Salvar;
             this.BtnSalvarLogins.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnSalvarLogins.Location = new System.Drawing.Point(3, 334);
+            this.BtnSalvarLogins.Location = new System.Drawing.Point(3, 237);
             this.BtnSalvarLogins.Name = "BtnSalvarLogins";
             this.BtnSalvarLogins.Size = new System.Drawing.Size(520, 50);
             this.BtnSalvarLogins.TabIndex = 9;
@@ -367,7 +338,7 @@
             this.BtnCancelarLogins.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCancelarLogins.Image = global::StrongBox.WinForms.Properties.Resources.Cancelar;
             this.BtnCancelarLogins.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.BtnCancelarLogins.Location = new System.Drawing.Point(3, 390);
+            this.BtnCancelarLogins.Location = new System.Drawing.Point(3, 293);
             this.BtnCancelarLogins.Name = "BtnCancelarLogins";
             this.BtnCancelarLogins.Size = new System.Drawing.Size(520, 50);
             this.BtnCancelarLogins.TabIndex = 10;
@@ -399,7 +370,7 @@
             this.DgvLogins.Location = new System.Drawing.Point(7, 31);
             this.DgvLogins.Name = "DgvLogins";
             this.DgvLogins.ReadOnly = true;
-            this.DgvLogins.Size = new System.Drawing.Size(539, 421);
+            this.DgvLogins.Size = new System.Drawing.Size(539, 442);
             this.DgvLogins.TabIndex = 1;
             // 
             // ClnCodigoLogin
@@ -534,7 +505,7 @@
             this.TpLocais.Location = new System.Drawing.Point(4, 26);
             this.TpLocais.Name = "TpLocais";
             this.TpLocais.Padding = new System.Windows.Forms.Padding(3);
-            this.TpLocais.Size = new System.Drawing.Size(1086, 457);
+            this.TpLocais.Size = new System.Drawing.Size(1086, 490);
             this.TpLocais.TabIndex = 1;
             this.TpLocais.Text = "Locais";
             // 
@@ -548,7 +519,7 @@
             this.FlpDadosLocal.Enabled = false;
             this.FlpDadosLocal.Location = new System.Drawing.Point(552, 28);
             this.FlpDadosLocal.Name = "FlpDadosLocal";
-            this.FlpDadosLocal.Size = new System.Drawing.Size(529, 424);
+            this.FlpDadosLocal.Size = new System.Drawing.Size(529, 457);
             this.FlpDadosLocal.TabIndex = 3;
             // 
             // GbxDadosDeLocal
@@ -740,7 +711,7 @@
             this.TpCategorias.Location = new System.Drawing.Point(4, 26);
             this.TpCategorias.Name = "TpCategorias";
             this.TpCategorias.Padding = new System.Windows.Forms.Padding(3);
-            this.TpCategorias.Size = new System.Drawing.Size(1086, 457);
+            this.TpCategorias.Size = new System.Drawing.Size(1086, 490);
             this.TpCategorias.TabIndex = 2;
             this.TpCategorias.Text = "Categorias";
             // 
@@ -754,7 +725,7 @@
             this.FlpDadosCategoria.Enabled = false;
             this.FlpDadosCategoria.Location = new System.Drawing.Point(552, 28);
             this.FlpDadosCategoria.Name = "FlpDadosCategoria";
-            this.FlpDadosCategoria.Size = new System.Drawing.Size(529, 424);
+            this.FlpDadosCategoria.Size = new System.Drawing.Size(529, 457);
             this.FlpDadosCategoria.TabIndex = 5;
             // 
             // GbxDadosDeCategoria
@@ -947,16 +918,44 @@
             this.TsmExcluirCategoria.Text = "Excluir";
             this.TsmExcluirCategoria.Click += new System.EventHandler(this.TsmExcluirCategoria_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.configuraçõesToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1094, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // configuraçõesToolStripMenuItem
+            // 
+            this.configuraçõesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tsmBancoDados});
+            this.configuraçõesToolStripMenuItem.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.configuraçõesToolStripMenuItem.Name = "configuraçõesToolStripMenuItem";
+            this.configuraçõesToolStripMenuItem.Size = new System.Drawing.Size(102, 20);
+            this.configuraçõesToolStripMenuItem.Text = "Configurações";
+            // 
+            // tsmBancoDados
+            // 
+            this.tsmBancoDados.Name = "tsmBancoDados";
+            this.tsmBancoDados.Size = new System.Drawing.Size(180, 22);
+            this.tsmBancoDados.Text = "Banco de dados";
+            this.tsmBancoDados.Click += new System.EventHandler(this.tsmBancoDados_Click);
+            // 
             // FormStrongBox
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.DarkGray;
-            this.ClientSize = new System.Drawing.Size(1094, 487);
+            this.ClientSize = new System.Drawing.Size(1094, 544);
             this.Controls.Add(this.TcPrincipal);
+            this.Controls.Add(this.menuStrip1);
             this.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "FormStrongBox";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Strong Box";
@@ -968,9 +967,9 @@
             this.FlpDadosLogins.ResumeLayout(false);
             this.GbxDadosUsuario.ResumeLayout(false);
             this.GbxDadosUsuario.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.NudTamanhoSenha)).EndInit();
-            this.GbxDadosSenha.ResumeLayout(false);
-            this.GbxDadosSenha.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DgvLogins)).EndInit();
             this.MsLogins.ResumeLayout(false);
             this.MsLogins.PerformLayout();
@@ -990,7 +989,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.DgvCategorias)).EndInit();
             this.MsCategorias.ResumeLayout(false);
             this.MsCategorias.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -1021,13 +1023,9 @@
         private System.Windows.Forms.TextBox TxtUsuario;
         private System.Windows.Forms.NumericUpDown NudTamanhoSenha;
         private System.Windows.Forms.Label LblTamanhoSenha;
-        private System.Windows.Forms.GroupBox GbxDadosSenha;
-        private System.Windows.Forms.TextBox TxtSenha;
-        private System.Windows.Forms.Label LblSenha;
         private System.Windows.Forms.RadioButton RbtnSenhaNumerica;
         private System.Windows.Forms.Button BtnSalvarLogins;
         private System.Windows.Forms.Button BtnCancelarLogins;
-        private System.Windows.Forms.Button BtnGerarSenha;
         private System.Windows.Forms.RadioButton RbtnSenhaAlfaNumerica;
         private System.Windows.Forms.RadioButton RbtnSenhaAlfabetica;
         private System.Windows.Forms.FlowLayoutPanel FlpDadosLogins;
@@ -1067,5 +1065,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClnLocal;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClnLocalPorLogin;
         private Componentes.UcCbxLocal UcLocal;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem configuraçõesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tsmBancoDados;
     }
 }
