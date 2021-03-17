@@ -3,19 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30611.23
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox.CamadaModelo", "CamadaModelo\StrongBox.CamadaModelo.csproj", "{F5FF74C4-CF87-4BBF-A111-D05F31CD4D34}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox_CamadaModelo", "StrongBox_CamadaModelo\StrongBox_CamadaModelo.csproj", "{F5FF74C4-CF87-4BBF-A111-D05F31CD4D34}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox.CamadaControle", "CamadaControle\StrongBox.CamadaControle.csproj", "{AF881859-9BDA-413D-8727-334B0DEB1742}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox_CamadaControladora", "StrongBox_CamadaControladora\StrongBox_CamadaControladora.csproj", "{AF881859-9BDA-413D-8727-334B0DEB1742}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox.WinForms", "WinForms\StrongBox.WinForms.csproj", "{D2C54C01-4723-4178-8231-086E24F2A86C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox_WinForms", "StrongBox_WinForms\StrongBox_WinForms.csproj", "{D2C54C01-4723-4178-8231-086E24F2A86C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VerificaBanco", "VerificaBanco\VerificaBanco.csproj", "{891DEFF0-F602-4450-981F-B5DDFEE75DD6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox.Exception", "..\..\StrongBoxV2\StrongBox_Exception\StrongBox.Exception\StrongBox.Exception.csproj", "{A3DD39CC-D101-4D57-9E09-6F150F992680}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox.Componentes", "..\..\StrongBoxV2\StrongBox_Componentes\StrongBox.Componentes\StrongBox.Componentes.csproj", "{D0E23959-5A8B-4C9B-8735-01B4F24D7081}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox.Biblioteca", "..\..\StrongBoxV2\StrongBox_Biblioteca\StrongBox.Biblioteca\StrongBox.Biblioteca.csproj", "{0E9ECDA7-E24F-4099-838D-E028939AC5B4}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StrongBox_VerificaBanco", "StrongBox_VerificaBanco\StrongBox_VerificaBanco.csproj", "{891DEFF0-F602-4450-981F-B5DDFEE75DD6}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -39,18 +33,6 @@ Global
 		{891DEFF0-F602-4450-981F-B5DDFEE75DD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{891DEFF0-F602-4450-981F-B5DDFEE75DD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{891DEFF0-F602-4450-981F-B5DDFEE75DD6}.Release|Any CPU.Build.0 = Release|Any CPU
-		{A3DD39CC-D101-4D57-9E09-6F150F992680}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{A3DD39CC-D101-4D57-9E09-6F150F992680}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{A3DD39CC-D101-4D57-9E09-6F150F992680}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{A3DD39CC-D101-4D57-9E09-6F150F992680}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0E23959-5A8B-4C9B-8735-01B4F24D7081}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0E23959-5A8B-4C9B-8735-01B4F24D7081}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0E23959-5A8B-4C9B-8735-01B4F24D7081}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0E23959-5A8B-4C9B-8735-01B4F24D7081}.Release|Any CPU.Build.0 = Release|Any CPU
-		{0E9ECDA7-E24F-4099-838D-E028939AC5B4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0E9ECDA7-E24F-4099-838D-E028939AC5B4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0E9ECDA7-E24F-4099-838D-E028939AC5B4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0E9ECDA7-E24F-4099-838D-E028939AC5B4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

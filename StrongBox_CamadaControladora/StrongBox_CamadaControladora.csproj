@@ -51,9 +51,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\CamadaModelo\StrongBox.CamadaModelo.csproj">
+    <ProjectReference Include="..\StrongBox_CamadaModelo\StrongBox_CamadaModelo.csproj">
       <Project>{f5ff74c4-cf87-4bbf-a111-d05f31cd4d34}</Project>
-      <Name>StrongBox.CamadaModelo</Name>
+      <Name>StrongBox_CamadaModelo</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
