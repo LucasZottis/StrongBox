@@ -7,8 +7,8 @@
     <ProjectGuid>{AF881859-9BDA-413D-8727-334B0DEB1742}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>StrongBox.CamadaControle</RootNamespace>
-    <AssemblyName>CamadaControle</AssemblyName>
+    <RootNamespace>StrongBox.CamadaControladora</RootNamespace>
+    <AssemblyName>StrongBox_CamadaControladora</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>

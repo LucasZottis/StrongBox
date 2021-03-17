@@ -7,7 +7,7 @@
     <ProjectGuid>{891DEFF0-F602-4450-981F-B5DDFEE75DD6}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>VerificaBanco</RootNamespace>
-    <AssemblyName>VerificaBanco</AssemblyName>
+    <AssemblyName>StrongBox_VerificaBanco</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
