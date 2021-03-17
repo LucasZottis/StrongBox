@@ -1,71 +1,90 @@
-﻿using StrongBox.CamadaModelo.Enums;
-using StrongBox.CamadaModelo.Excecoes;
-using System;
+﻿using StrongBox.Biblioteca.Classes.Estaticas;
+using StrongBox.Biblioteca.Enums;
+using StrongBox.Exceptions;
+using System.Configuration;
 
-namespace StrongBox.CamadaModelo.Entidades {
-    public class Login {
-        public long Codigo { get; private set; }
+namespace StrongBox.CamadaModelo {
+    public partial class Login {
+        #region Propriedades e Atributos
+
+        private readonly string _sCadeiaConexao;
+        public int Codigo { get; private set; }
         public string Usuario { get; private set; }
         public string Observacao { get; private set; }
         public byte Tamanho { get; private set; }
         public string Senha { get; private set; }
-        public TipoDeSenha TipoSenha { get; private set; }
-        public long CodigoLocal { get; private set; }
-        private bool _excluido;
+        public TipoSenha Tipo { get; private set; }
+        public int CodigoLocal { get; private set; }
 
-        /// <summary>
-        /// Construtor de inserção.
-        /// </summary>
-        public Login(string usuario, string observacao, byte tamanho, TipoDeSenha tipo, string senha, long codigoLocal) {
-            if (usuario.Length > 50 || usuario.Length < 4) throw new LoginException("Login deve ter de 4 à 50 caracteres."); else this.Usuario = usuario;
-            if (string.IsNullOrEmpty(observacao)) {
-                Observacao = observacao;
-            } else if (observacao.Length > 30 || observacao.Length < 4) {
-                throw new LoginException("Campo observação deve ter de 4 à 30 caracteres.");
-            } else this.Observacao = observacao;
-            if (tamanho < 4 || tamanho > 20) throw new LoginException("Tamanho da deve ser entre 4 e 20 caracteres."); else this.Tamanho = tamanho;
-            if (senha.Length != Tamanho) throw new LoginException("O tamanho da senha não pode ser diferente que o definido."); else this.Senha = senha;
-            if (Convert.ToByte(tipo) < 0 || Convert.ToByte(tipo) > 2) throw new LoginException("Tipo de senha selecionado não existe."); else TipoSenha = tipo;
-            if (codigoLocal < 1) throw new LoginException("Local inexistente."); else this.CodigoLocal = codigoLocal;
-        }
-        /// <summary>
-        /// Construtor de atualização de login.
-        /// </summary>
-        public Login(long codigo, string usuario, string observacao, byte tamanho, long codigoLocal) {
-            if (codigo < 0) throw new LoginException("ID não pode ser menor que 0."); else this.Codigo = codigo;
-            if (usuario.Length > 50 || usuario.Length < 4) throw new LoginException("Login deve ter de 4 à 50 caracteres."); else this.Usuario = usuario;
-            if (string.IsNullOrEmpty(observacao)) {
-                Observacao = observacao;
-            } else if (observacao.Length > 30 || observacao.Length < 4) {
-                throw new LoginException("Campo observação deve ter de 4 à 30 caracteres.");
-            } else this.Observacao = observacao; 
-            if (tamanho < 4 || tamanho > 20) throw new LoginException("Tamanho da deve ser entre 4 e 20 caracteres."); else this.Tamanho = tamanho;
-            if (codigoLocal < 1) throw new LoginException("Local inexistente."); else this.CodigoLocal = codigoLocal;
-        }
-        /// <summary>
-        /// Construtor de atualização de senha.
-        /// </summary>
-        public Login(long codigo, byte tamanho, TipoDeSenha tipo, string senha, long codigoLocal) {
-            if (codigo < 0) throw new LoginException("ID não pode ser menor que 0."); else this.Codigo = codigo;
-            if (tamanho < 4 || tamanho > 20) throw new LoginException("Tamanho da deve ser entre 4 e 20 caracteres."); else this.Tamanho = tamanho;
-            if (senha.Length != Tamanho) throw new LoginException("O tamanho da senha não pode ser diferente que o definido."); else this.Senha = senha;
-            if (Convert.ToInt32(tipo) < 1 || Convert.ToInt32(tipo) > 3) throw new LoginException("Tipo de senha selecionado não existe."); else TipoSenha = tipo;
-            if (codigoLocal < 1) throw new LoginException("Local inexistente."); else this.CodigoLocal = codigoLocal;
-        }
-        /// <summary>
-        /// Construtor de exclusão.
-        /// </summary>
-        public Login(long codigo) {
-            if (codigo < 0) throw new LoginException("ID não pode ser menor que 0."); else this.Codigo = codigo;
+        #endregion
+
+        #region Construtores
+
+        public Login() {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
         }
 
+        public Login(int pCodigo) {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
 
-        public void AtivarDesativar(bool opcao) {
-            _excluido = opcao;
+            if (pCodigo < 1) throw new LoginException("Código de login inexistente!"); else Codigo = pCodigo;
         }
 
-        public bool FoiExcluido() {
-            return _excluido;
+        public Login(string pUsuario, string pObservacao, byte pTamanho, TipoSenha pTipo, string pSenha, int pCodigoLocal) {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
+
+            if (pUsuario.Length > 50) throw new LoginException("Usuário deve ter 50 caracteres ou menos!");
+            else if (pUsuario.Length < 4) throw new LoginException("Usuário deve ter 4 caracteres ou mais!"); 
+            else Usuario = pUsuario;
+
+            if (string.IsNullOrEmpty(pObservacao)) Observacao = pObservacao;
+            else if (pObservacao.Length > 30) throw new LoginException("Observação de ter 30 caracteres ou menos!");
+            else if (pObservacao.Length < 4) throw new LoginException("Observação de ter 4 caracteres ou mais!");
+            else Observacao = pObservacao;
+
+            if (pTamanho < 4) throw new LoginException("Tamanho da senha não pode ter menos de 4 caracteres!");
+            else if (pTamanho > 20) throw new LoginException("Tamanho da senha não pode ter mais de 20 caracteres!"); 
+            else Tamanho = pTamanho;
+
+            if (pSenha.Length != Tamanho) throw new LoginException("O tamanho da senha não pode ser diferente que o definido!"); 
+            else Senha = pSenha;
+
+            if (pTipo.ParaByte() < 1 || pTipo.ParaByte() > 3) throw new LoginException("Tipo de senha selecionado não existe."); 
+            else Tipo = pTipo;
+
+            if (pCodigoLocal < 1) throw new LoginException("Código do local inexistente!"); 
+            else CodigoLocal = pCodigoLocal;
         }
+
+        public Login(int pCodigo, string pUsuario, string pObservacao, byte pTamanho, TipoSenha pTipo, string pSenha, int pCodigoLocal) {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
+
+            if (pCodigo < 1) throw new LoginException("Código de login inexistente!"); else Codigo = pCodigo;
+
+            if (pUsuario.Length > 50) throw new LoginException("Usuário deve ter 50 caracteres ou menos!");
+            else if (pUsuario.Length < 4) throw new LoginException("Usuário deve ter 4 caracteres ou mais!");
+            else Usuario = pUsuario;
+
+            if (string.IsNullOrEmpty(pObservacao)) Observacao = pObservacao;
+            else if (pObservacao.Length > 30) throw new LoginException("Observação de ter 30 caracteres ou menos!");
+            else if (pObservacao.Length < 4) throw new LoginException("Observação de ter 4 caracteres ou mais!");
+            else Observacao = pObservacao;
+
+            if (pTamanho < 4) throw new LoginException("Tamanho da senha não pode ter menos de 4 caracteres!");
+            else if (pTamanho > 20) throw new LoginException("Tamanho da senha não pode ter mais de 20 caracteres!");
+            else Tamanho = pTamanho;
+
+            if (pSenha.Length != Tamanho) throw new LoginException("O tamanho da senha não pode ser diferente que o definido!");
+            else Senha = pSenha;
+
+            if (pTipo.ParaByte() < 1 || pTipo.ParaByte() > 3) throw new LoginException("Tipo de senha selecionado não existe.");
+            else Tipo = pTipo;
+
+            if (pCodigoLocal < 1) throw new LoginException("Código do local inexistente!");
+            else CodigoLocal = pCodigoLocal;
+
+        }
+
+        #endregion
     }
 }

@@ -49,7 +49,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\Categoria.Repositorio.cs" />
     <Compile Include="Repositorios\Local.Repositorio.cs" />
-    <Compile Include="Repositorios\LoginRepositorio.cs" />
+    <Compile Include="Repositorios\Login.Repositorio.cs" />
     <Compile Include="Servicos\GeradorDeSenha.cs" />
   </ItemGroup>
   <ItemGroup>
