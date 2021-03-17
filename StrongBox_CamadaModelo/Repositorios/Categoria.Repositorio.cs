@@ -1,5 +1,5 @@
 ﻿using StrongBox.Biblioteca.Classes.Bases;
-using StrongBox.CamadaModelo.Excecoes;
+using StrongBox.Exceptions;
 using System;
 using System.Data;
 using System.Data.SqlClient;

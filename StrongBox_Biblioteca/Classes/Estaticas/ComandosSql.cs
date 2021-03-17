@@ -2,26 +2,40 @@
     public static class ComandosSql {
         #region Comandos INSERT
 
-        private static readonly string _sInserirLogin = "INSERT INTO LOGIN " +
-                                                    "(USUARIO, OBS, SENHA, TAMANHO, TIPO_SENHA, COD_LOCAL) " +
-                                                "VALUES " +
-                                                    "(@Usuario, @Observacao, @Senha, @Tamanho, @TipoSenha, @CodigoLocal)";
-
-        private static readonly string _sInserirLocal = "INSERT INTO LOCAL " +
-                                                            "(NOME, COD_CATEGORIA) " +
+        public static readonly string _sInserirLogin = "INSERT INTO LOGIN " +
+                                                            "(USUARIO, " +
+                                                            "OBS, " +
+                                                            "SENHA, " +
+                                                            "TAMANHO, " +
+                                                            "TIPO_SENHA, " +
+                                                            "COD_LOCAL) " +
                                                         "VALUES " +
-                                                            "(@Nome, @CodigoCategoria)";
+                                                            "(@Usuario, " +
+                                                            "@Observacao, " +
+                                                            "@Senha, " +
+                                                            "@Tamanho, " +
+                                                            "@TipoSenha, " +
+                                                            "@CodigoLocal)";
 
-        private static readonly string _sInserirCategoria = "INSERT INTO CATEGORIA " +
-                                                                "(NOME, PREFIXO) " +
+        public static readonly string _sInserirLocal = "INSERT INTO LOCAL " +
+                                                            "(NOME, " +
+                                                            "COD_CATEGORIA) " +
+                                                        "VALUES " +
+                                                            "(@Nome, " +
+                                                            "@CodigoCategoria)";
+
+        public static readonly string _sInserirCategoria = "INSERT INTO CATEGORIA " +
+                                                                "(NOME, " +
+                                                                "PREFIXO) " +
                                                             "VALUES " +
-                                                                "(@Nome, @Prefixo)";
+                                                                "(@Nome, " +
+                                                                "@Prefixo)";
 
         #endregion
 
         #region Comandos UPDATE
 
-        private static readonly string _sAtualizarLogin = "UPDATE " +
+        public static readonly string _sAtualizarLogin = "UPDATE " +
                                                             "LOGIN " +
                                                           "SET " +
                                                             "USUARIO = @Usuario, " +
@@ -33,7 +47,7 @@
                                                           "WHERE " +
                                                             "CODIGO = @Codigo";
 
-        private static readonly string _sAtualizarLocal = "UPDATE " +
+        public static readonly string _sAtualizarLocal = "UPDATE " +
                                                             "LOCAL " +
                                                           "SET " +
                                                             "NOME = @Nome, " +
@@ -41,7 +55,7 @@
                                                           "WHERE " +
                                                             "CODIGO = @Codigo";
 
-        private static readonly string _sAtualizarCategoria = "UPDATE " +
+        public static readonly string _sAtualizarCategoria = "UPDATE " +
                                                                 "CATEGORIA " +
                                                               "SET " +
                                                                 "NOME = @Nome, " +
@@ -53,7 +67,7 @@
 
         #region Comandos SELECT
 
-        private static readonly string _sBuscarLogins = "SELECT " +
+        public static readonly string _sBuscarLogins = "SELECT " +
                                                     "USUARIO, " +
                                                     "OBS, " +
                                                     "SENHA, " +
@@ -65,7 +79,7 @@
                                                     "LOGIN " +
                                                     "INNER JOIN LOCAL ON LOCAL.CODIGO = LOGIN.COD_LOCAL";
 
-        private static readonly string _sBuscarLocais = "SELECT " +
+        public static readonly string _sBuscarLocais = "SELECT " +
                                                             "NOME, " +
                                                             "COD_CATEGORIA, " +
                                                             "CATEGORIA.NOME " +
@@ -73,7 +87,7 @@
                                                             "LOCAL " +
                                                             "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_LOCAL";
 
-        private static readonly string _sBuscarCategorias = "SELECT " +
+        public static readonly string _sBuscarCategorias = "SELECT " +
                                                                 "NOME, " +
                                                                 "PREFIXO " +
                                                             "FROM " +
@@ -83,17 +97,17 @@
 
         #region Comandos DELETE
 
-        private static readonly string _sDeletarLogin = "DELETE " +
+        public static readonly string _sDeletarLogin = "DELETE " +
                                                             "LOGIN " +
                                                         "WHERE " +
                                                             "CODIGO = @Codigo";
 
-        private static readonly string _sDeletarLocal = "DELETE " +
+        public static readonly string _sDeletarLocal = "DELETE " +
                                                             "LOCAL " +
                                                          "WHERE " +
                                                             "CODIGO = @Codigo";
 
-        private static readonly string _sDeletarCategoria = "DELETE " +
+        public static readonly string _sDeletarCategoria = "DELETE " +
                                                                 "CATEGORIA " +
                                                              "WHERE " +
                                                                 "CODIGO = @Codigo";

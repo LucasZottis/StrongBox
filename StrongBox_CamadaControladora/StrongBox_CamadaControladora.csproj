@@ -42,7 +42,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controladores\CategoriaControle.cs" />
+    <Compile Include="Controladores\CategoriaControlador.cs" />
     <Compile Include="Controladores\LocalControle.cs" />
     <Compile Include="Controladores\LoginControle.cs" />
     <Compile Include="Interfaces\ICategoria.cs" />
