@@ -1,28 +1,45 @@
 ﻿using StrongBox.CamadaModelo.Excecoes;
+using System.Configuration;
 
-namespace StrongBox.CamadaModelo.Entidades {
-    public class Categoria {
-        public long Codigo { get; private set; }
+namespace StrongBox.CamadaModelo {
+    public partial class Categoria {
+        #region
+
+        private readonly string _sCadeiaConexao;
+        public int Codigo { get; private set; }
         public string Nome { get; private set; }
         public string Prefixo { get; private set; }
-        private bool _excluido;
 
-        public Categoria(string nome, string prefixo) {
-            if (nome.Length < 5) throw new CategoriaException("Nome precisa ter mais de 5 caracteres"); else this.Nome = nome;
-            if (prefixo.Length != 3) throw new CategoriaException("Prefixo é apenas 3 caracteres"); else this.Prefixo = prefixo;
-        }
-        public Categoria(long codigo, string nome, string prefixo) {
-            if (codigo < 1) throw new CategoriaException("Código de categoria inválido!"); else this.Codigo = codigo;
-            if (nome.Length < 5) throw new CategoriaException("Nome precisa ter mais de 5 caracteres"); else this.Nome = nome;
-            if (prefixo.Length != 3) throw new CategoriaException("Prefixo é apenas 3 caracteres"); else this.Prefixo = prefixo;
+        #endregion
+
+        #region Construtores
+
+        public Categoria() {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
         }
 
-        public void AtivarDesativar(bool opcao) {
-            _excluido = opcao;
+        public Categoria(int pCodigo) {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
+
+            if (pCodigo < 1) throw new CategoriaException("Código de categoria inválido!"); 
+            else Codigo = pCodigo;
         }
 
-        public bool FoiExcluido() {
-            return _excluido;
+        public Categoria(string pNome, string pPrefixo) {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
+
+            if (pNome.Length < 5) throw new CategoriaException("Nome precisa ter mais de 5 caracteres"); else Nome = pNome;
+            if (pPrefixo.Length != 3) throw new CategoriaException("Prefixo é apenas 3 caracteres"); else Prefixo = pPrefixo;
         }
+
+        public Categoria(int pCodigo, string pNome, string pPrefixo) {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
+
+            if (pCodigo < 1) throw new CategoriaException("Código de categoria inválido!"); else Codigo = pCodigo;
+            if (pNome.Length < 5) throw new CategoriaException("Nome precisa ter mais de 5 caracteres"); else Nome = pNome;
+            if (pPrefixo.Length != 3) throw new CategoriaException("Prefixo é apenas 3 caracteres"); else Prefixo = pPrefixo;
+        }
+
+        #endregion
     }
 }

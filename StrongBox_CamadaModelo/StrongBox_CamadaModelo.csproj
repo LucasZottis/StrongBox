@@ -51,7 +51,7 @@
     <Compile Include="Excecoes\LocalException.cs" />
     <Compile Include="Excecoes\LoginException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositorios\CategoriaRepositorio.cs" />
+    <Compile Include="Repositorios\Categoria.Repositorio.cs" />
     <Compile Include="Repositorios\LocalRepositorio.cs" />
     <Compile Include="Repositorios\LoginRepositorio.cs" />
     <Compile Include="Servicos\GeradorDeSenha.cs" />
