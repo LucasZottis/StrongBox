@@ -1,7 +1,7 @@
 ﻿namespace StrongBox.CamadaControle.Interfaces {
     public interface ILocal {
-        long ObterCodigoLocal();
+        int ObterCodigo();
         string ObterNomeLocal();
-        long ObterCategoria();
+        int ObterCategoria();
     }
 }

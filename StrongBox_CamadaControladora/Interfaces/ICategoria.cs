@@ -1,6 +1,6 @@
 ﻿namespace StrongBox.CamadaControle.Interfaces {
     public interface ICategoria {
-        long ObterCodigoCategoria();
+        int ObterCodigo();
         string ObterNomeCategoria();
         string ObterPrefixo();
     }

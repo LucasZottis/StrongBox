@@ -1,11 +1,13 @@
-﻿namespace StrongBox.CamadaControle.Interfaces {
+﻿using StrongBox.Biblioteca.Enums;
+
+namespace StrongBox.CamadaControle.Interfaces {
     public interface ILogin {
-        long ObterCodigoLogin();
+        int ObterCodigo();
         string ObterUsuario();
         string ObterObservacao();
         string ObterSenha();
         byte ObterTamanho();
-        int ObterTipoSenha();
-        long ObterLocal();
+        TipoSenha ObterTipo();
+        int ObterLocal();
     }
 }
