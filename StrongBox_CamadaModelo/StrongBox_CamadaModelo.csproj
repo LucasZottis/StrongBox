@@ -47,12 +47,9 @@
     <Compile Include="Entidades\Local.cs" />
     <Compile Include="Entidades\Login.cs" />
     <Compile Include="Enums\TipoDeSenha.cs" />
-    <Compile Include="Excecoes\CategoriaException.cs" />
-    <Compile Include="Excecoes\LocalException.cs" />
-    <Compile Include="Excecoes\LoginException.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositorios\Categoria.Repositorio.cs" />
-    <Compile Include="Repositorios\LocalRepositorio.cs" />
+    <Compile Include="Repositorios\Local.Repositorio.cs" />
     <Compile Include="Repositorios\LoginRepositorio.cs" />
     <Compile Include="Servicos\GeradorDeSenha.cs" />
   </ItemGroup>

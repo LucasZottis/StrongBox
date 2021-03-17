@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 
 namespace StrongBox.Exceptions {
-    class LoginException : Exception {
+    public class LoginException : Exception {
         public LoginException() {
         }
 

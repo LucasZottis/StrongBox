@@ -2,7 +2,7 @@
 using System.Runtime.Serialization;
 
 namespace StrongBox.Exceptions {
-    class CategoriaException : Exception {
+    public class CategoriaException : Exception {
         public CategoriaException() {
         }
 

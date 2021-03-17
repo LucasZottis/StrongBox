@@ -1,4 +1,4 @@
-﻿using StrongBox.CamadaModelo.Excecoes;
+﻿using StrongBox.Exceptions;
 using System.Configuration;
 
 namespace StrongBox.CamadaModelo {

@@ -1,28 +1,44 @@
-﻿using StrongBox.CamadaModelo.Excecoes;
+﻿using StrongBox.Exceptions;
+using System.Configuration;
 
-namespace StrongBox.CamadaModelo.Entidades {
-    public class Local {
+namespace StrongBox.CamadaModelo {
+    public partial class Local {
+        #region Propriedades e Atributos
+
+        private readonly string _sCadeiaConexao;
         public long Codigo { get; private set; }
         public string Nome { get; private set; }
-        public long CodigoCategoria { get; private set; }
-        private bool _excluido;
+        public int CodigoCategoria { get; private set; }
 
-        public Local(string nome, long codigoCategoria) {
-            if (nome.Length < 3) throw new LocalException("Nome precisa ter mais de 3 caracteres!"); else this.Nome = nome;
-            if (codigoCategoria < 1) throw new LocalException("Código da categoria inválido!"); else this.CodigoCategoria = codigoCategoria;
-        }
-        public Local(long codLocal, string nome, long codigoCategoria) {
-            if (codLocal < 1) throw new LocalException("Código de local inválido!"); else this.Codigo = codLocal;
-            if (nome.Length < 3) throw new LocalException("Nome precisa ter mais de 3 caracteres!"); else this.Nome = nome;
-            if (codigoCategoria < 1) throw new LocalException("Código da categoria inválido!"); else this.CodigoCategoria = codigoCategoria;
+        #endregion
+
+        #region Construtores
+
+        public Local() {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
         }
 
-        public void AtivarDesativar(bool opcao) {
-            _excluido = opcao;
+        public Local(int pCodigo) {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
+
+            if (pCodigo < 1) throw new LocalException("Código de local inválido!"); else Codigo = pCodigo;
         }
 
-        public bool FoiExcluido() {
-            return _excluido;
+        public Local(string pNome, int pCodigoCategoria) {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
+
+            if (pNome.Length < 3) throw new LocalException("Nome precisa ter mais de 3 caracteres!"); else Nome = pNome;
+            if (pCodigoCategoria < 1) throw new LocalException("Código da categoria inválido!"); else CodigoCategoria = pCodigoCategoria;
         }
+
+        public Local(int pCodigo, string pNome, int pCodigoCategoria) {
+            _sCadeiaConexao = ConfigurationManager.ConnectionStrings[1].ConnectionString;
+
+            if (pCodigo < 1) throw new LocalException("Código de local inválido!"); else Codigo = pCodigo;
+            if (pNome.Length < 3) throw new LocalException("Nome precisa ter mais de 3 caracteres!"); else Nome = pNome;
+            if (pCodigoCategoria < 1) throw new LocalException("Código da categoria inválido!"); else CodigoCategoria = pCodigoCategoria;
+        }
+
+        #endregion
     }
 }
