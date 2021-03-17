@@ -42,18 +42,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controles\CategoriaControle.cs" />
-    <Compile Include="Controles\LocalControle.cs" />
-    <Compile Include="Controles\LoginControle.cs" />
+    <Compile Include="Controladores\CategoriaControle.cs" />
+    <Compile Include="Controladores\LocalControle.cs" />
+    <Compile Include="Controladores\LoginControle.cs" />
     <Compile Include="Interfaces\ICategoria.cs" />
     <Compile Include="Interfaces\ILocal.cs" />
     <Compile Include="Interfaces\ILogin.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\StrongBox_Biblioteca\StrongBox_Biblioteca.csproj">
+      <Project>{e3a57b72-161f-4944-bda0-983b28cd1909}</Project>
+      <Name>StrongBox_Biblioteca</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StrongBox_CamadaModelo\StrongBox_CamadaModelo.csproj">
       <Project>{f5ff74c4-cf87-4bbf-a111-d05f31cd4d34}</Project>
       <Name>StrongBox_CamadaModelo</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StrongBox_Exception\StrongBox_Exceptions.csproj">
+      <Project>{75217c25-47fd-4a83-9e39-feb95d68e06b}</Project>
+      <Name>StrongBox_Exceptions</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

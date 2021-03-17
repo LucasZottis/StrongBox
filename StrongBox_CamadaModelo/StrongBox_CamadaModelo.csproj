@@ -56,5 +56,15 @@
     <Compile Include="Repositorios\LoginRepositorio.cs" />
     <Compile Include="Servicos\GeradorDeSenha.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\StrongBox_Biblioteca\StrongBox_Biblioteca.csproj">
+      <Project>{e3a57b72-161f-4944-bda0-983b28cd1909}</Project>
+      <Name>StrongBox_Biblioteca</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StrongBox_Exception\StrongBox_Exceptions.csproj">
+      <Project>{75217c25-47fd-4a83-9e39-feb95d68e06b}</Project>
+      <Name>StrongBox_Exceptions</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
