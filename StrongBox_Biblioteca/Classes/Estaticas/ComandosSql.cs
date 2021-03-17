@@ -68,24 +68,25 @@
         #region Comandos SELECT
 
         public static readonly string _sBuscarLogins = "SELECT " +
-                                                    "USUARIO, " +
-                                                    "OBS, " +
-                                                    "SENHA, " +
-                                                    "TAMANHO, " +
-                                                    "TIPO_SENHA, " +
-                                                    "COD_LOCAL, " +
-                                                    "LOCAL.NOME " +
-                                                "FROM " +
-                                                    "LOGIN " +
-                                                    "INNER JOIN LOCAL ON LOCAL.CODIGO = LOGIN.COD_LOCAL";
+                                                            "USUARIO, " +
+                                                            "OBS, " +
+                                                            "SENHA, " +
+                                                            "TAMANHO, " +
+                                                            "TIPO_SENHA, " +
+                                                            "COD_LOCAL, " +
+                                                            "LOCAL.NOME " +
+                                                        "FROM " +
+                                                            "LOGIN " +
+                                                            "INNER JOIN LOCAL ON LOCAL.CODIGO = LOGIN.COD_LOCAL";
 
         public static readonly string _sBuscarLocais = "SELECT " +
+                                                            "CODIGO, " +
                                                             "NOME, " +
                                                             "COD_CATEGORIA, " +
                                                             "CATEGORIA.NOME " +
                                                         "FROM " +
                                                             "LOCAL " +
-                                                            "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_LOCAL";
+                                                            "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA";
 
         public static readonly string _sBuscarCategorias = "SELECT " +
                                                                 "NOME, " +

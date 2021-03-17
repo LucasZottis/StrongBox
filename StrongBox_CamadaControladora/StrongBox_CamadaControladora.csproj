@@ -43,7 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Controladores\CategoriaControlador.cs" />
-    <Compile Include="Controladores\LocalControle.cs" />
+    <Compile Include="Controladores\LocalControlador.cs" />
     <Compile Include="Controladores\LoginControle.cs" />
     <Compile Include="Interfaces\ICategoria.cs" />
     <Compile Include="Interfaces\ILocal.cs" />
