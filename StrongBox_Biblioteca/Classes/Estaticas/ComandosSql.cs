@@ -2,7 +2,7 @@
     public static class ComandosSql {
         #region Comandos INSERT
 
-        public static readonly string _sInserirLogin = "INSERT INTO LOGIN " +
+        public static readonly string InserirLogin = "INSERT INTO LOGIN " +
                                                             "(USUARIO, " +
                                                             "OBS, " +
                                                             "SENHA, " +
@@ -17,14 +17,14 @@
                                                             "@TipoSenha, " +
                                                             "@CodigoLocal)";
 
-        public static readonly string _sInserirLocal = "INSERT INTO LOCAL " +
+        public static readonly string InserirLocal = "INSERT INTO LOCAL " +
                                                             "(NOME, " +
                                                             "COD_CATEGORIA) " +
                                                         "VALUES " +
                                                             "(@Nome, " +
                                                             "@CodigoCategoria)";
 
-        public static readonly string _sInserirCategoria = "INSERT INTO CATEGORIA " +
+        public static readonly string InserirCategoria = "INSERT INTO CATEGORIA " +
                                                                 "(NOME, " +
                                                                 "PREFIXO) " +
                                                             "VALUES " +
@@ -35,7 +35,7 @@
 
         #region Comandos UPDATE
 
-        public static readonly string _sAtualizarLogin = "UPDATE " +
+        public static readonly string AtualizarLogin = "UPDATE " +
                                                             "LOGIN " +
                                                           "SET " +
                                                             "USUARIO = @Usuario, " +
@@ -47,7 +47,7 @@
                                                           "WHERE " +
                                                             "CODIGO = @Codigo";
 
-        public static readonly string _sAtualizarLocal = "UPDATE " +
+        public static readonly string AtualizarLocal = "UPDATE " +
                                                             "LOCAL " +
                                                           "SET " +
                                                             "NOME = @Nome, " +
@@ -55,7 +55,7 @@
                                                           "WHERE " +
                                                             "CODIGO = @Codigo";
 
-        public static readonly string _sAtualizarCategoria = "UPDATE " +
+        public static readonly string AtualizarCategoria = "UPDATE " +
                                                                 "CATEGORIA " +
                                                               "SET " +
                                                                 "NOME = @Nome, " +
@@ -67,7 +67,7 @@
 
         #region Comandos SELECT
 
-        public static readonly string _sBuscarLogins = "SELECT " +
+        public static readonly string BuscarLogins = "SELECT " +
                                                             "USUARIO, " +
                                                             "OBS, " +
                                                             "SENHA, " +
@@ -79,7 +79,15 @@
                                                             "LOGIN " +
                                                             "INNER JOIN LOCAL ON LOCAL.CODIGO = LOGIN.COD_LOCAL";
 
-        public static readonly string _sBuscarLocais = "SELECT " +
+        public static readonly string BuscarPrefixo = "SELECT " +
+                                                        "CATEGORIA.PREFIXO, " +
+                                                      "FROM " +
+                                                        "CATEGORIA " +
+                                                        "INNER JOIN LOCAL ON LOCAL.CODIGO = @CodigoLocal " +
+                                                      "WHERE " +
+                                                        "CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA";
+
+        public static readonly string BuscarLocais = "SELECT " +
                                                             "CODIGO, " +
                                                             "NOME, " +
                                                             "COD_CATEGORIA, " +
@@ -88,7 +96,7 @@
                                                             "LOCAL " +
                                                             "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA";
 
-        public static readonly string _sBuscarCategorias = "SELECT " +
+        public static readonly string BuscarCategorias = "SELECT " +
                                                                 "NOME, " +
                                                                 "PREFIXO " +
                                                             "FROM " +
@@ -98,17 +106,17 @@
 
         #region Comandos DELETE
 
-        public static readonly string _sDeletarLogin = "DELETE " +
+        public static readonly string DeletarLogin = "DELETE " +
                                                             "LOGIN " +
                                                         "WHERE " +
                                                             "CODIGO = @Codigo";
 
-        public static readonly string _sDeletarLocal = "DELETE " +
+        public static readonly string DeletarLocal = "DELETE " +
                                                             "LOCAL " +
                                                          "WHERE " +
                                                             "CODIGO = @Codigo";
 
-        public static readonly string _sDeletarCategoria = "DELETE " +
+        public static readonly string DeletarCategoria = "DELETE " +
                                                                 "CATEGORIA " +
                                                              "WHERE " +
                                                                 "CODIGO = @Codigo";

@@ -51,6 +51,8 @@ namespace StrongBox.CamadaModelo {
 
             using (SqlConnection sqlConexao = new SqlConnection(_sCadeiaConexao)) {
                 using (SqlCommand sqlComando = new SqlCommand(pSql, sqlConexao)) {
+                    if (CodigoLocal > 0) sqlComando.Parameters.AddWithValue("@CodigoLocal", CodigoLocal);
+
                     sqlAdaptador = new SqlDataAdapter(sqlComando);
                     sqlAdaptador.Fill(dtTabela);
                 }

@@ -44,7 +44,7 @@
   <ItemGroup>
     <Compile Include="Controladores\CategoriaControlador.cs" />
     <Compile Include="Controladores\LocalControlador.cs" />
-    <Compile Include="Controladores\LoginControle.cs" />
+    <Compile Include="Controladores\LoginControlador.cs" />
     <Compile Include="Interfaces\ICategoria.cs" />
     <Compile Include="Interfaces\ILocal.cs" />
     <Compile Include="Interfaces\ILogin.cs" />

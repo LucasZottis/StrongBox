@@ -29,13 +29,6 @@ namespace StrongBox.CamadaControle.Controles {
             return new Categoria().Consultar(ComandosSql._sBuscarCategorias);
         }
 
-        public string BuscarPrefixo() {
-            // TODO: Implementar para retornar o prefixo da categoria indicada.
-            DataTable dtTabela = BuscarCategorias();
-
-            return dtTabela.AsEnumerable().Where(categoria => categoria["CODIGO"].ParaInt() == _intCategoria.ObterCodigo()).ToString();
-        }
-
         public void Excluir() {
             // TODO: Criar um mecanismo para verificar se tem algum registro relacionado, caso sim, perguntar se deseja deletar todos.
             Categoria categoria = new Categoria(_intCategoria.ObterCodigo());
