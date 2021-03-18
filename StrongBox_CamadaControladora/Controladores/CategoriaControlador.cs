@@ -53,7 +53,7 @@ namespace StrongBox.CamadaControle.Controles {
         }
 
         public bool VerificarRegistrosRelacionados() {
-            return TemRegistro(BuscarRegistrosRelacionados(ComandosSql.BuscarLoginsRelacionados)) && TemRegistro(BuscarRegistrosRelacionados(ComandosSql.BuscarLocaisRelacionados));
+            return TemRegistro(BuscarRegistrosRelacionados(ComandosSql.BuscarLoginsRelacionados)) || TemRegistro(BuscarRegistrosRelacionados(ComandosSql.BuscarLocaisRelacionados));
         }
 
         #endregion
