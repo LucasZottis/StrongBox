@@ -42,6 +42,7 @@ namespace StrongBox_Componentes.Controles {
             // txtCodigo
             // 
             this.txtCodigo.Location = new System.Drawing.Point(65, 3);
+            this.txtCodigo.MaxLength = 2;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(52, 22);
             this.txtCodigo.TabIndex = 1;
