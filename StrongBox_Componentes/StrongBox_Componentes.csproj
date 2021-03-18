@@ -43,6 +43,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Controles\ucCategoria.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ucCategoria.Designer.cs">
+      <DependentUpon>ucCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Controles\ucFiltroCategoria.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -64,6 +70,14 @@
       <Project>{75217c25-47fd-4a83-9e39-feb95d68e06b}</Project>
       <Name>StrongBox_Exceptions</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Controles\ucCategoria.resx">
+      <DependentUpon>ucCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ucFiltroCategoria.resx">
+      <DependentUpon>ucFiltroCategoria.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

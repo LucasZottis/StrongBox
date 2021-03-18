@@ -7,6 +7,10 @@ namespace StrongBox.Biblioteca.Classes.Estaticas {
             return Convert.ToInt32(pValor);
         }
 
+        public static int ParaInt(this string pValor) {
+            return int.Parse(pValor);
+        }
+
         public static byte ParaByte(this TipoSenha pValor) {
             return Convert.ToByte(pValor);
         }

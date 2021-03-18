@@ -4,13 +4,14 @@ using System.Data;
 using System.Windows.Forms;
 
 namespace StrongBox_Componentes.Controles {
-    public partial class ucFiltroCategoria : UserControl {
+    public partial class ucCategoria : UserControl {
         #region Propriedades e Atributos
 
         public DataTable FonteDados {
-            private get {
+            get {
                 return FonteDados;
             }
+
             set {
                 FonteDados = value;
             }
@@ -20,29 +21,27 @@ namespace StrongBox_Componentes.Controles {
             get {
                 return cbxCategoria.SelectedValue.ParaInt();
             }
-
             set {
                 Categoria = txtCodigo.Text.ParaInt();
-            }
+            } 
         }
 
         #endregion
 
         #region Construtores
 
-        public ucFiltroCategoria() {
+        public ucCategoria() {
             InitializeComponent();
 
             cbxCategoria.DisplayMember = "NOME";
             cbxCategoria.ValueMember = "CODIGO";
         }
 
-
         #endregion
 
         #region Eventos
 
-        private void ucFiltroCategoria_KeyDown(object sender, KeyEventArgs e) {
+        private void ucCategoria_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.F3) {
                 if (string.IsNullOrEmpty(txtCodigo.Text)) {
                     cbxCategoria.DataSource = FonteDados;
