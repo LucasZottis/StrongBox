@@ -11,28 +11,36 @@ namespace StrongBox.CamadaControle.Controles {
 
         #endregion
 
+        #region Construtores
+
         public CategoriaControlador(ICategoria pInterface) {
             _intCategoria = pInterface;
         }
 
+        #endregion
+
+        #region Métodos Públicos
+
         public void Criar() {
             Categoria categoria = new Categoria(_intCategoria.ObterNomeCategoria(), _intCategoria.ObterPrefixo());
-            categoria.Inserir(ComandosSql._sInserirCategoria);
+            categoria.Inserir(ComandosSql.InserirCategoria);
         }
 
         public void Editar() {
             Categoria categoria = new Categoria(_intCategoria.ObterCodigo(), _intCategoria.ObterNomeCategoria(), _intCategoria.ObterPrefixo());
-            categoria.Atualizar(ComandosSql._sAtualizarCategoria);
+            categoria.Atualizar(ComandosSql.AtualizarCategoria);
         }
 
         public DataTable BuscarCategorias() {
-            return new Categoria().Consultar(ComandosSql._sBuscarCategorias);
+            return new Categoria().Consultar(ComandosSql.BuscarCategorias);
         }
 
         public void Excluir() {
             // TODO: Criar um mecanismo para verificar se tem algum registro relacionado, caso sim, perguntar se deseja deletar todos.
             Categoria categoria = new Categoria(_intCategoria.ObterCodigo());
-            categoria.Deletar(ComandosSql._sDeletarCategoria);
+            categoria.Deletar(ComandosSql.DeletarCategoria);
         }
+
+        #endregion
     }
 }

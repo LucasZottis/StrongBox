@@ -4,7 +4,6 @@ using StrongBox.CamadaControle.Interfaces;
 using StrongBox.CamadaModelo;
 using StrongBox.CamadaModelo.Servicos;
 using StrongBox.Exceptions;
-using System;
 using System.Data;
 
 namespace StrongBox.CamadaControle.Controles {
@@ -15,9 +14,15 @@ namespace StrongBox.CamadaControle.Controles {
 
         #endregion
 
+        #region Construtores
+
         public LoginControlador(ILogin pInterface) {
             _intLogin = pInterface;
         }
+
+        #endregion
+
+        #region Métodos Públicos
 
         public void Criar() {
             Login login = new Login(_intLogin.ObterUsuario(), _intLogin.ObterObservacao(), _intLogin.ObterTamanho(), _intLogin.ObterTipo(), _intLogin.ObterSenha(), _intLogin.ObterLocal());
@@ -52,5 +57,7 @@ namespace StrongBox.CamadaControle.Controles {
             }
             return senha;
         }
+
+        #endregion
     }
 }
