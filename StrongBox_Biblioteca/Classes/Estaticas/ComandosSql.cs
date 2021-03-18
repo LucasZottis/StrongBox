@@ -107,19 +107,27 @@
         #region Categoria
 
         public static readonly string BuscarCategorias = "SELECT " +
-                                                                "NOME, " +
-                                                                "PREFIXO " +
-                                                            "FROM " +
-                                                                "CATEGORIA";
+                                                            "NOME, " +
+                                                            "PREFIXO " +
+                                                         "FROM " +
+                                                            "CATEGORIA";
 
-        public static readonly string BuscarRegistrosRelacionados = "SELECT " +
-                                                                        "LOGIN.CODIGO, " +
-                                                                    "FROM " +
-                                                                        "LOGIN " +
-                                                                        "INNER JOIN LOCAL ON LOCAL.CODIGO = LOGIN.COD_LOCAL " +
-                                                                        "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA " +
-                                                                    "WHERE " +
-                                                                        "CATEGORIA.CODIGO = @Codigo";
+        public static readonly string BuscarLoginsRelacionados = "SELECT " +
+                                                                    "LOGIN.CODIGO " +
+                                                                "FROM " +
+                                                                    "LOGIN " +
+                                                                    "INNER JOIN LOCAL ON LOCAL.CODIGO = LOGIN.COD_LOCAL " +
+                                                                    "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA " +
+                                                                "WHERE " +
+                                                                    "CATEGORIA.CODIGO = @Codigo";
+
+        public static readonly string BuscarLocaisRelacionados = "SELECT " +
+                                                                    "LOCAL.CODIGO " +
+                                                                "FROM " +
+                                                                    "LOCAL " +
+                                                                    "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA " +
+                                                                "WHERE " +
+                                                                    "CATEGORIA.CODIGO = @Codigo";
         #endregion
 
         #endregion
