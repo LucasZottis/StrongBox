@@ -21,7 +21,13 @@ namespace StrongBox.CamadaControle.Controles {
 
         #region Métodos Privados
 
+        private DataTable BuscarRegistrosRelacionados(string pSql) {
+            return new Categoria().Consultar(pSql);
+        }
 
+        private bool TemRegistro(DataTable pTabela) {
+            return pTabela.Rows.Count > 0;
+        }
 
         #endregion
 
@@ -46,12 +52,8 @@ namespace StrongBox.CamadaControle.Controles {
             categoria.Deletar(ComandosSql.DeletarCategoria);
         }
 
-        public bool TemRegistro(DataTable pTabela) {
-            return pTabela.Rows.Count > 0;
-        }
-
-        public DataTable BuscarLoginsRelacionados() {
-            return new Categoria().Consultar(ComandosSql.BuscarRegistrosRelacionados);
+        public bool VerificarRegistrosRelacionados() {
+            return TemRegistro(BuscarRegistrosRelacionados(ComandosSql.BuscarLoginsRelacionados)) && TemRegistro(BuscarRegistrosRelacionados(ComandosSql.BuscarLocaisRelacionados));
         }
 
         #endregion
