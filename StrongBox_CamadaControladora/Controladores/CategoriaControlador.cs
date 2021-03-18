@@ -19,6 +19,12 @@ namespace StrongBox.CamadaControle.Controles {
 
         #endregion
 
+        #region Métodos Privados
+
+
+
+        #endregion
+
         #region Métodos Públicos
 
         public void Criar() {
@@ -36,9 +42,16 @@ namespace StrongBox.CamadaControle.Controles {
         }
 
         public void Excluir() {
-            // TODO: Criar um mecanismo para verificar se tem algum registro relacionado, caso sim, perguntar se deseja deletar todos.
             Categoria categoria = new Categoria(_intCategoria.ObterCodigo());
             categoria.Deletar(ComandosSql.DeletarCategoria);
+        }
+
+        public bool TemRegistro(DataTable pTabela) {
+            return pTabela.Rows.Count > 0;
+        }
+
+        public DataTable BuscarLoginsRelacionados() {
+            return new Categoria().Consultar(ComandosSql.BuscarRegistrosRelacionados);
         }
 
         #endregion

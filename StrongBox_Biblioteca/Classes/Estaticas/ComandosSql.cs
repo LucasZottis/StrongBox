@@ -67,17 +67,19 @@
 
         #region Comandos SELECT
 
+        #region Logins
+
         public static readonly string BuscarLogins = "SELECT " +
-                                                            "USUARIO, " +
-                                                            "OBS, " +
-                                                            "SENHA, " +
-                                                            "TAMANHO, " +
-                                                            "TIPO_SENHA, " +
-                                                            "COD_LOCAL, " +
-                                                            "LOCAL.NOME " +
-                                                        "FROM " +
-                                                            "LOGIN " +
-                                                            "INNER JOIN LOCAL ON LOCAL.CODIGO = LOGIN.COD_LOCAL";
+                                                        "USUARIO, " +
+                                                        "OBS, " +
+                                                        "SENHA, " +
+                                                        "TAMANHO, " +
+                                                        "TIPO_SENHA, " +
+                                                        "COD_LOCAL, " +
+                                                        "LOCAL.NOME " +
+                                                    "FROM " +
+                                                        "LOGIN " +
+                                                        "INNER JOIN LOCAL ON LOCAL.CODIGO = LOGIN.COD_LOCAL";
 
         public static readonly string BuscarPrefixo = "SELECT " +
                                                         "CATEGORIA.PREFIXO, " +
@@ -87,20 +89,38 @@
                                                       "WHERE " +
                                                         "CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA";
 
+        #endregion
+
+        #region Local
+
         public static readonly string BuscarLocais = "SELECT " +
-                                                            "CODIGO, " +
-                                                            "NOME, " +
-                                                            "COD_CATEGORIA, " +
-                                                            "CATEGORIA.NOME " +
-                                                        "FROM " +
-                                                            "LOCAL " +
-                                                            "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA";
+                                                    "CODIGO, " +
+                                                    "NOME, " +
+                                                    "COD_CATEGORIA, " +
+                                                    "CATEGORIA.NOME " +
+                                                "FROM " +
+                                                    "LOCAL " +
+                                                    "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA";
+
+        #endregion
+
+        #region Categoria
 
         public static readonly string BuscarCategorias = "SELECT " +
                                                                 "NOME, " +
                                                                 "PREFIXO " +
                                                             "FROM " +
                                                                 "CATEGORIA";
+
+        public static readonly string BuscarRegistrosRelacionados = "SELECT " +
+                                                                        "LOGIN.CODIGO, " +
+                                                                    "FROM " +
+                                                                        "LOGIN " +
+                                                                        "INNER JOIN LOCAL ON LOCAL.CODIGO = LOGIN.COD_LOCAL " +
+                                                                        "INNER JOIN CATEGORIA ON CATEGORIA.CODIGO = LOCAL.COD_CATEGORIA " +
+                                                                    "WHERE " +
+                                                                        "CATEGORIA.CODIGO = @Codigo";
+        #endregion
 
         #endregion
 
