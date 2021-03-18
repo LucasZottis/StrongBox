@@ -4,7 +4,7 @@ using System.Data;
 using System.Windows.Forms;
 
 namespace StrongBox_Componentes.Controles {
-    public partial class ucCategoria : UserControl {
+    public partial class ucFiltroLocal : UserControl {
         #region Propriedades e Atributos
 
         public DataTable FonteDados {
@@ -17,36 +17,37 @@ namespace StrongBox_Componentes.Controles {
             }
         }
 
-        public int Categoria {
+        public int Local { 
             get {
-                return cbxCategoria.SelectedValue.ParaInt();
+                return cbxLocal.SelectedValue.ParaInt();
             }
+
             set {
-                Categoria = txtCodigo.Text.ParaInt();
-            } 
+                Local = txtCodigo.Text.ParaInt();
+            }
         }
 
         #endregion
 
         #region Construtores
 
-        public ucCategoria() {
+        public ucFiltroLocal() {
             InitializeComponent();
 
-            cbxCategoria.DisplayMember = "NOME";
-            cbxCategoria.ValueMember = "CODIGO";
+            cbxLocal.DisplayMember = "NOME";
+            cbxLocal.ValueMember = "CODIGO";
         }
 
         #endregion
 
         #region Eventos
 
-        private void ucCategoria_KeyDown(object sender, KeyEventArgs e) {
+        private void uFiltroLocal_KeyDown(object sender, KeyEventArgs e) {
             if (e.KeyCode == Keys.F3) {
                 if (string.IsNullOrEmpty(txtCodigo.Text)) {
-                    cbxCategoria.DataSource = FonteDados;
+                    cbxLocal.DataSource = FonteDados;
                 } else {
-                    cbxCategoria.DataSource = FonteDados.Select($"CODIGO = {txtCodigo.Text}");
+                    cbxLocal.DataSource = FonteDados.Select($"CODIGO = {txtCodigo.Text}");
                 }
             }
         }

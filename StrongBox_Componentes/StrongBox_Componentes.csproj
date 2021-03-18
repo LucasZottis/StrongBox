@@ -55,6 +55,18 @@
     <Compile Include="Controles\ucFiltroCategoria.Designer.cs">
       <DependentUpon>ucFiltroCategoria.cs</DependentUpon>
     </Compile>
+    <Compile Include="Controles\ucLocal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ucLocal.Designer.cs">
+      <DependentUpon>ucLocal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controles\ucFiltroLocal.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controles\ucFiltroLocal.Designer.cs">
+      <DependentUpon>ucFiltroLocal.cs</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -77,6 +89,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Controles\ucFiltroCategoria.resx">
       <DependentUpon>ucFiltroCategoria.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ucLocal.resx">
+      <DependentUpon>ucLocal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controles\ucFiltroLocal.resx">
+      <DependentUpon>ucFiltroLocal.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
