@@ -1,4 +1,4 @@
-﻿using StrongBox.WinForms.Janelas;
+﻿using StrongBox.WinForms.Categoria;
 using System;
 using System.Configuration;
 using System.Windows.Forms;
@@ -14,11 +14,10 @@ namespace StrongBox.WinForms {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            
             try {
                 BancoDeDados banco = new BancoDeDados(ConfigurationManager.ConnectionStrings[1].ConnectionString);
                 if (banco.TestarConexao() == false) Application.Run(new FormVerificaBanco());
-                Application.Run(new FormStrongBox());
+                Application.Run(new FormCategoria());
             } catch (Exception erro) {
                 MessageBox.Show(erro.Message, ".:: Strong Box ::. | Erro!", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

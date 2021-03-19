@@ -44,6 +44,7 @@
     <Compile Include="Classes\Bases\Repositorio.cs" />
     <Compile Include="Classes\Estaticas\ComandosSql.cs" />
     <Compile Include="Classes\Estaticas\Conversores.cs" />
+    <Compile Include="Enums\ModoJanela.cs" />
     <Compile Include="Enums\TipoSenha.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

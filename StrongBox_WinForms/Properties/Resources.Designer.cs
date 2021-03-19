@@ -63,9 +63,9 @@ namespace StrongBox.WinForms.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Buscar {
+        internal static System.Drawing.Bitmap Editar_22x22 {
             get {
-                object obj = ResourceManager.GetObject("Buscar", resourceCulture);
+                object obj = ResourceManager.GetObject("Editar_22x22", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace StrongBox.WinForms.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Cancelar {
+        internal static System.Drawing.Bitmap Excluir_24px {
             get {
-                object obj = ResourceManager.GetObject("Cancelar", resourceCulture);
+                object obj = ResourceManager.GetObject("Excluir_24px", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -83,39 +83,9 @@ namespace StrongBox.WinForms.Properties {
         /// <summary>
         ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Cancelar2_20x20 {
+        internal static System.Drawing.Bitmap Sair_22x22 {
             get {
-                object obj = ResourceManager.GetObject("Cancelar2_20x20", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Confirm {
-            get {
-                object obj = ResourceManager.GetObject("Confirm", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Confirm20x20 {
-            get {
-                object obj = ResourceManager.GetObject("Confirm20x20", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Data_Base {
-            get {
-                object obj = ResourceManager.GetObject("Data_Base", resourceCulture);
+                object obj = ResourceManager.GetObject("Sair_22x22", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -126,16 +96,6 @@ namespace StrongBox.WinForms.Properties {
         internal static System.Drawing.Bitmap Salvar {
             get {
                 object obj = ResourceManager.GetObject("Salvar", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Consulta um recurso localizado do tipo System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap Senha1 {
-            get {
-                object obj = ResourceManager.GetObject("Senha1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

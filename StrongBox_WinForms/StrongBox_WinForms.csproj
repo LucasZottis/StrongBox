@@ -33,9 +33,13 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>StrongBox.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MaterialSkin.Updated.0.2.2\lib\MaterialSkin.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
@@ -51,54 +55,53 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Componentes\UcCbxCategoria.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Componentes\UcCbxCategoria.Designer.cs">
-      <DependentUpon>UcCbxCategoria.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Componentes\UcCbxLocal.cs">
-      <SubType>UserControl</SubType>
-    </Compile>
-    <Compile Include="Componentes\UcCbxLocal.Designer.cs">
-      <DependentUpon>UcCbxLocal.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Janelas\FormStrongBox.cs">
+    <Compile Include="Categoria\FormCategoria.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Janelas\FormStrongBox.Designer.cs">
-      <DependentUpon>FormStrongBox.cs</DependentUpon>
+    <Compile Include="Categoria\FormCategoria.Designer.cs">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Componentes\UcCbxCategoria.resx">
-      <DependentUpon>UcCbxCategoria.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Componentes\UcCbxLocal.resx">
-      <DependentUpon>UcCbxLocal.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Janelas\FormStrongBox.resx">
-      <DependentUpon>FormStrongBox.cs</DependentUpon>
+    <Compile Include="StrongBoxDS.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StrongBoxDS.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Categoria\FormCategoria.resx">
+      <DependentUpon>FormCategoria.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
-      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <Compile Include="Properties\Resources.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DependentUpon>Resources.resx</DependentUpon>
-      <DesignTime>True</DesignTime>
-    </Compile>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="StrongBoxDS.xsc">
+      <DependentUpon>StrongBoxDS.xsd</DependentUpon>
+    </None>
+    <None Include="StrongBoxDS.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StrongBoxDS.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="StrongBoxDS.xss">
+      <DependentUpon>StrongBoxDS.xsd</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -116,21 +119,29 @@
       <Project>{19d88af3-c589-40fa-b290-e91a26b53c00}</Project>
       <Name>StrongBox_Componentes</Name>
     </ProjectReference>
+    <ProjectReference Include="..\StrongBox_Exception\StrongBox_Exceptions.csproj">
+      <Project>{75217c25-47fd-4a83-9e39-feb95d68e06b}</Project>
+      <Name>StrongBox_Exceptions</Name>
+    </ProjectReference>
     <ProjectReference Include="..\StrongBox_VerificaBanco\StrongBox_VerificaBanco.csproj">
       <Project>{891deff0-f602-4450-981f-b5ddfee75dd6}</Project>
       <Name>StrongBox_VerificaBanco</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Recursos\Buscar.png" />
-    <Content Include="Recursos\Cancelar.png" />
-    <Content Include="Recursos\Cancelar2_20x20.png" />
-    <Content Include="Recursos\Confirm.png" />
-    <Content Include="Recursos\Confirm20x20.png" />
-    <Content Include="Recursos\Data Base.png" />
-    <Content Include="Recursos\Salvar.png" />
-    <Content Include="Recursos\Senha1.png" />
-    <Content Include="StrongBox.ico" />
+    <Folder Include="Login\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Sair_22x22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Salvar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Editar_22x22.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Excluir_24px.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
